@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Game.Player.StateMachine;
+using Game.Player;
 
 [RequireComponent(typeof(Animator))]
 public class AnimationManager : MonoBehaviour

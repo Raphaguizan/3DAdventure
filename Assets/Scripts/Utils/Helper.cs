@@ -8,7 +8,8 @@ namespace Game.Util
         {
             for (int i = 0; i < list.Length; i++)
             {
-                if (list[i].GetType().Equals(t.GetType()))
+                Type type = list[i].GetType();
+                if (type.Equals(t))
                     return list[i];
             }
             return default;

@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEditor;
 using Game.Player.StateMachine;
 
-[CustomEditor(typeof(PlayerStateMachine))]
+[CustomEditor(typeof(PlayerInputController))]
 public class PlayerStateMachineEditor : Editor
 {
     bool showFoldout;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        PlayerStateMachine myTarget = (PlayerStateMachine)target;
+        PlayerInputController myTarget = (PlayerInputController)target;
         if (myTarget.StateMachine != null)
         {
             EditorGUILayout.Space(10);
