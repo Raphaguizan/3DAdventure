@@ -6,7 +6,7 @@ namespace Game.StateMachine
 {
     public class StateBase
     {
-        public virtual void OnStateEnter(object o = null)
+        public virtual void OnStateEnter(params object[] o)
         {
             Debug.Log("Entrou no estado");
         }

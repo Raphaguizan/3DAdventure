@@ -40,7 +40,7 @@ namespace Game.StateMachine
         #endregion
 
         #region states controller
-        public void SwitchState(T state, object o = null)
+        public void SwitchState(T state, params object[] o)
         {
             if (_currentState != null) _currentState.OnStateExit();
             _currentState = dictionaryState[state];
