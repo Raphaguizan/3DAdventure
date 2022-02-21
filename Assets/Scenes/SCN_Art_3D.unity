@@ -10924,10 +10924,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1743456000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba85a27fe440ecc43917cc67f80ea9f0, type: 3}
+  m_Script: {fileID: 11500000, guid: a6e7e7c6f0d5bcd40a4925eddddb6b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationManager: {fileID: 668978334}
   movement: {fileID: 1743456003}
 --- !u!143 &1743456002
 CharacterController:
@@ -10960,11 +10959,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1743456002}
+  animationManager: {fileID: 668978334}
   speed: 10
   sprintModifier: 1.5
   rotateDuration: 0.5
-  gravity: -9
-  jumpForce: 10
+  gravity: -1
+  jumpForce: 0.4
 --- !u!4 &1743456004
 Transform:
   m_ObjectHideFlags: 0

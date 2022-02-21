@@ -12,7 +12,7 @@ namespace Game.Player
     }
     public class PlayerInputController : MonoBehaviour
     {
-        public AnimationManager animationManager;
+
         public PlayerMovement movement;
 
         private void Update()
@@ -28,15 +28,6 @@ namespace Game.Player
             float inputY = Input.GetAxis("Vertical");
             Vector2 input = new Vector2(inputX, inputY);
 
-            if (input != Vector2.zero)
-            {
-                animationManager.Play(PlayerStates.WALK, true);
-            }
-            else
-            {
-                animationManager.Play(PlayerStates.WALK, false);
-            }
-
             movement.Move(input);
         }
 
@@ -44,28 +35,15 @@ namespace Game.Player
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (movement.controller.isGrounded)
-                {
-                    animationManager.Play(PlayerStates.JUMP);
-                    movement.Jump();
-                }
+                movement.Jump();
             }
         }
         private void GetKeySprint()
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                if (movement.IsMoving)
-                {
-                    animationManager.Play(PlayerStates.RUN);
-                    movement.Run();
-                }
+                movement.Run();
             }
         }
-        private void Kill()
-        {
-            animationManager.Play(PlayerStates.DIE);
-        }
     }
-
 }
