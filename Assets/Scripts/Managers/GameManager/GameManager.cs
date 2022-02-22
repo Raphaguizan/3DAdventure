@@ -26,6 +26,6 @@ public class GameManager : Singleton<GameManager>
     public void Init()
     {
         _stateMachine = new StateMachineBase<GameStates>();
-        _stateMachine.SwitchState(GameStates.MENU);
+        _stateMachine.SwitchState(GameStates.GAME);
     }
 }

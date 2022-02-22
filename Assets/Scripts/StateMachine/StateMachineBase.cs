@@ -8,12 +8,14 @@ namespace Game.StateMachine
     {
         #region declaration
         public StateBase CurrentState => _currentState;
+        public T CurrentStateType => _currentStateType;
         public Dictionary<T, StateBase> Dictionary => dictionaryState;
 
 
         protected Dictionary<T, StateBase> dictionaryState;
 
         private StateBase _currentState;
+        private T _currentStateType;
         #endregion
 
         #region init
@@ -43,6 +45,7 @@ namespace Game.StateMachine
         public void SwitchState(T state, params object[] o)
         {
             if (_currentState != null) _currentState.OnStateExit();
+            _currentStateType = state;
             _currentState = dictionaryState[state];
             _currentState.OnStateEnter(o);
         }
