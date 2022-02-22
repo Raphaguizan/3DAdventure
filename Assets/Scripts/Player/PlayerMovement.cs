@@ -44,6 +44,7 @@ namespace Game.Player
             if (PlayerStateMachine.CompareCurrentStateType(PlayerStates.WALK))
             {
                 PlayerStateMachine.ChangeState(PlayerStates.RUN);
+
                 _moveDirection *= sprintModifier;
                 _moveDirection.y = _verticalSpeed;
             }
