@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Player
 {
+    [RequireComponent(typeof(PlayerInput))]
     public class PlayerInputController : MonoBehaviour
     {
 
@@ -36,6 +38,14 @@ namespace Game.Player
             {
                 movement.Run();
             }
+        }
+
+        private void OnShoot(InputValue value)
+        {
+            if(value.isPressed)
+                Debug.Log("atirou");
+            else 
+                Debug.Log("parou de atirar");
         }
     }
 }
