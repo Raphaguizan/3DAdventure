@@ -1,22 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Player.Abillity
 {
-    [RequireComponent(typeof(PlayerInputController))]
     public class PlayerAbillityBase : MonoBehaviour
     {
-        protected PlayerInputController player;
-
-        private void OnValidate()
-        {
-            if(!player) player = GetComponent<PlayerInputController>();
-        }
         private void Start()
         {
             Init(); 
-            OnValidate();
             RegisterListeners();
         }
 
@@ -25,9 +18,12 @@ namespace Game.Player.Abillity
             RemoveListeners();
         }
 
-        protected void Init() { }
+        protected virtual void Init() { }
 
-        protected void RegisterListeners() { }
-        protected void RemoveListeners() { }
+        protected virtual void RegisterListeners() { }
+        protected virtual void RemoveListeners() { }
+
+        public virtual void StartAbillity(InputValue value) { }
+        public virtual void EndAbillity() { }
     }
 }

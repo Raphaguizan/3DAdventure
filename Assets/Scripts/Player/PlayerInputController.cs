@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Game.Player.Abillity;
 
 namespace Game.Player
 {
@@ -8,6 +9,7 @@ namespace Game.Player
     {
 
         public PlayerMovement movement;
+        public PlayerAbillityBase abillity;
 
         private void Update()
         {
@@ -42,10 +44,10 @@ namespace Game.Player
 
         private void OnShoot(InputValue value)
         {
-            if(value.isPressed)
-                Debug.Log("atirou");
-            else 
-                Debug.Log("parou de atirar");
+            if (value.isPressed)
+                abillity.StartAbillity(value);
+            else
+                abillity.EndAbillity();
         }
     }
 }

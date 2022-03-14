@@ -3,55 +3,57 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunBase : MonoBehaviour
+namespace Game.Player.Gun
 {
-    public Transform gunPoint;
-    public float shotCooldown;
-    public GameObject bulletPrefab;
-    [Space]
-    public KeyCode shotKey = KeyCode.A;
-    public Action ShotCallBack;
-
-    private List<GameObject> _shotPoolingList = new List<GameObject>();
-    private Coroutine _currentCoroutine;
-    private bool _buttonIsPressed = false;
-
-    private void Update()
+    public class GunBase : MonoBehaviour
     {
-        if (Input.GetKeyDown(shotKey))
+        public Transform gunPoint;
+        public GameObject bulletPrefab;
+        public float shotCooldown;
+        public Action ShotCallBack;
+
+        private List<GameObject> _shotPoolingList = new List<GameObject>();
+        private Coroutine _currentCoroutine;
+
+        protected bool _canShoot = true;
+        protected bool _buttonIsPressed = false;
+
+        protected virtual IEnumerator ShotController()
+        {
+            while (_buttonIsPressed)
+            {
+                Shot();
+                yield return new WaitForSeconds(shotCooldown);
+            }
+        }
+
+        protected virtual void Shot()
+        {
+            if (!_canShoot) return;
+            ShotCallBack?.Invoke();
+
+            foreach (var i in _shotPoolingList)
+            {
+                if (!i.activeInHierarchy)
+                {
+                    i.GetComponent<BulletBase>().Initialize(gunPoint.transform);
+                    return;
+                }
+            }
+            var aux = Instantiate(bulletPrefab);
+            aux.GetComponent<BulletBase>().Initialize(gunPoint.transform);
+            _shotPoolingList.Add(aux);
+        }
+
+        public virtual void StartShoot()
         {
             _buttonIsPressed = true;
             _currentCoroutine = StartCoroutine(ShotController());
         }
-        else if (Input.GetKeyUp(shotKey))
+        public virtual void EndShoot()
         {
             _buttonIsPressed = false;
-            StopCoroutine(_currentCoroutine);
+            if(_currentCoroutine != null) StopCoroutine(_currentCoroutine);
         }
-    }
-    IEnumerator ShotController()
-    {
-        while (_buttonIsPressed)
-        {
-            Shot();
-            yield return new WaitForSeconds(shotCooldown);
-        }
-    }
-
-    private void Shot()
-    {
-        ShotCallBack?.Invoke();
-
-        foreach(var i in _shotPoolingList)
-        {
-            if (!i.activeInHierarchy)
-            {
-                i.GetComponent<BulletBase>().Initialize(gunPoint.transform);
-                return;
-            }
-        }
-        var aux = Instantiate(bulletPrefab);
-        aux.GetComponent<BulletBase>().Initialize(gunPoint.transform);
-        _shotPoolingList.Add(aux);
     }
 }
