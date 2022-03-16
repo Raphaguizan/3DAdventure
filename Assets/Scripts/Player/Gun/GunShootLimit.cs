@@ -6,10 +6,11 @@ namespace Game.Player.Gun
 {
     public class GunShootLimit : GunBase
     {
+        [Header("LimitGun")]
         [SerializeField]
         private int _bulletLimit = 10;
         [SerializeField]
-        private float _rechargeTime = 5f;
+        private float _rechargeTime = 3f;
 
         private int _currentbullets = 0;
 

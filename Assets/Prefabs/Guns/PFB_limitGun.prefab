@@ -47,6 +47,7 @@ MonoBehaviour:
   gunPoint: {fileID: 3154877340598722177}
   bulletPrefab: {fileID: 1311950974521151213, guid: 00acd6204095da742b650a203f9e2f73, type: 3}
   shotCooldown: 0.2
+  bulletSpeed: 25
   _bulletLimit: 10
   _rechargeTime: 3
 --- !u!1 &3154877340598722190

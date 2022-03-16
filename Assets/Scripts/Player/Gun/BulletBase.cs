@@ -20,8 +20,9 @@ public class BulletBase : MonoBehaviour
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    public void Initialize(Transform t)
+    public void Initialize(Transform t, float speed)
     {
+        this.speed = speed;
         transform.SetPositionAndRotation(t.position, t.rotation);
 
         gameObject.SetActive(true);

@@ -7,9 +7,11 @@ namespace Game.Player.Gun
 {
     public class GunBase : MonoBehaviour
     {
+        [Header("base gun")]
         public Transform gunPoint;
         public GameObject bulletPrefab;
-        public float shotCooldown;
+        public float shotCooldown = .2f;
+        public float bulletSpeed = 25f;
         public Action ShotCallBack;
 
         private List<GameObject> _shotPoolingList = new List<GameObject>();
@@ -32,17 +34,27 @@ namespace Game.Player.Gun
             if (!_canShoot) return;
             ShotCallBack?.Invoke();
 
+            BulletPooling(gunPoint);
+        }
+
+        protected void BulletPooling(Transform bulletParent)
+        {
             foreach (var i in _shotPoolingList)
             {
                 if (!i.activeInHierarchy)
                 {
-                    i.GetComponent<BulletBase>().Initialize(gunPoint.transform);
+                    InitializeBullet(i.GetComponent<BulletBase>(), bulletParent);
                     return;
                 }
             }
             var aux = Instantiate(bulletPrefab);
-            aux.GetComponent<BulletBase>().Initialize(gunPoint.transform);
+            InitializeBullet(aux.GetComponent<BulletBase>(), bulletParent);
             _shotPoolingList.Add(aux);
+        }
+
+        protected virtual void InitializeBullet(BulletBase bullet, Transform t)
+        {
+            bullet.Initialize(t, bulletSpeed);
         }
 
         public virtual void StartShoot()
