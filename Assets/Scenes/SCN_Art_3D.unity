@@ -3169,7 +3169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568302224}
-  m_LocalRotation: {x: 0.26807758, y: 0.000000016576585, z: -0.0000000046126454, w: 0.9633973}
+  m_LocalRotation: {x: 0.26807758, y: -0.00000001657658, z: 0.000000004612644, w: 0.9633973}
   m_LocalPosition: {x: 414.98, y: 6.5600038, z: 27.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4325,6 +4325,7 @@ GameObject:
   - component: {fileID: 803736045}
   - component: {fileID: 803736044}
   - component: {fileID: 803736043}
+  - component: {fileID: 803736047}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -4413,6 +4414,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &803736047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803736042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed303c1d11ef3ab4dad59618ebffec3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  register: {fileID: 11400000, guid: 43833f4b2768ab245ac17206814d51c1, type: 2}
+  _fillImage: {fileID: 394160891}
 --- !u!1001 &807765524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9266,7 +9281,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.26807758, y: 0.000000016576585, z: -0.0000000046126454, w: 0.9633973}
+  m_LocalRotation: {x: 0.26807758, y: -0.00000001657658, z: 0.000000004612644, w: 0.9633973}
   m_LocalPosition: {x: 414.98, y: 6.5600038, z: 27.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

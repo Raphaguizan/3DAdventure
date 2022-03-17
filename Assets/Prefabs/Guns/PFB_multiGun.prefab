@@ -46,10 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunPoint: {fileID: 4006080110985986994}
   bulletPrefab: {fileID: 1311950974521151213, guid: 00acd6204095da742b650a203f9e2f73, type: 3}
-  shotCooldown: 0.2
+  shotCooldown: 0.5
   bulletSpeed: 25
-  _bulletLimit: 10
-  _rechargeTime: 3
+  _gunUI: {fileID: 11400000, guid: 43833f4b2768ab245ac17206814d51c1, type: 2}
+  _bulletLimit: 5
+  _rechargeTime: 2
   _bulletAmount: 5
   _angle: 13
 --- !u!1 &4006080110985987005
