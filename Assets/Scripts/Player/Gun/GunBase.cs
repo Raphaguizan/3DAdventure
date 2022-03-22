@@ -19,6 +19,21 @@ namespace Game.Player.Gun
 
         protected bool _canShoot = true;
         protected bool _buttonIsPressed = false;
+        protected bool _mainGun = false;
+
+        private void OnEnable()
+        {
+            InitGun();
+        }
+        public virtual void InitGun()
+        {
+            _mainGun = true;
+        }
+        public virtual void DisableGun()
+        {
+            _mainGun = false;
+            EndShoot();
+        }
 
         protected virtual IEnumerator ShotController()
         {

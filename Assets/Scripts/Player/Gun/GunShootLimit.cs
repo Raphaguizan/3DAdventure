@@ -18,6 +18,12 @@ namespace Game.Player.Gun
 
         private int _currentbullets = 0;
 
+        public override void InitGun()
+        {
+            base.InitGun();
+            _gunUI.UpdateAll(_currentbullets, _bulletLimit);
+        }
+
         protected override IEnumerator ShotController()
         {
             while (_buttonIsPressed)
@@ -46,7 +52,7 @@ namespace Game.Player.Gun
             while(time < _rechargeTime)
             {
                 time += Time.deltaTime;
-                _gunUI.UpdateAll(time/_rechargeTime);
+                if(_mainGun)_gunUI.UpdateAll(time/_rechargeTime);
                 yield return null;
             }
             _currentbullets = 0;
