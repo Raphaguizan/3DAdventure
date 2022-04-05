@@ -6,7 +6,7 @@ public class BulletBase : MonoBehaviour
 {
     public float lifeTime;
     public float speed;
-    public int Damage = 1;
+    public int bulletDamage = 1;
 
     IEnumerator TimeToDestroy()
     {
@@ -27,5 +27,15 @@ public class BulletBase : MonoBehaviour
 
         gameObject.SetActive(true);
         StartCoroutine(TimeToDestroy());
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var damageable = collision.gameObject.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.Damage(bulletDamage);
+            gameObject.SetActive(false);
+        }
     }
 }
