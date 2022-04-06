@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.StateMachine
 {
-    public class StateMachineBase<T> where T : System.Enum
+    public class StateMachineBase<T>: MonoBehaviour where T : System.Enum
     {
         #region declaration
         public StateBase CurrentState => _currentState;
@@ -22,6 +22,7 @@ namespace Game.StateMachine
         public StateMachineBase()
         {
             dictionaryState = new Dictionary<T, StateBase>();
+
             StateBase statebase = new StateBase();
             string[] enumString = System.Enum.GetNames(typeof(T));
 
@@ -29,7 +30,6 @@ namespace Game.StateMachine
             {
                 RegisterState((T)System.Enum.Parse(typeof(T), enumString[i]), statebase);
             }
-            StateCoroutine.StartStateCoroutine(StateUpdate());
         }
 
         public void RegisterState(T stateType, StateBase stateClass)
@@ -50,13 +50,9 @@ namespace Game.StateMachine
             _currentState.OnStateEnter(o);
         }
 
-        IEnumerator StateUpdate()
+        private void Update()
         {
-            while (true)
-            {
-                if (_currentState != null) _currentState.OnStateStay();
-                yield return null;
-            }
+            if (_currentState != null) _currentState.OnStateStay();
         }
         #endregion
     }
