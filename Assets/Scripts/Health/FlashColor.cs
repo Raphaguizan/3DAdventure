@@ -5,9 +5,8 @@ using NaughtyAttributes;
 using DG.Tweening;
 
 
-namespace Game.Enemy
+namespace Game.Health
 {
-    [RequireComponent(typeof(MeshRenderer))]
     public class FlashColor : MonoBehaviour
     {
         [Header("Anim Setup")]
@@ -19,11 +18,13 @@ namespace Game.Enemy
         private Color _flashColor = Color.white;
 
         private MeshRenderer _renderer;
+        private SkinnedMeshRenderer _skinnedMeshRenderer;
         private Tween _currentTween;
 
         private void OnValidate()
         {
-            _renderer = GetComponent<MeshRenderer>();
+            if(_renderer != null) _renderer = GetComponent<MeshRenderer>();
+            if(_skinnedMeshRenderer != null) _skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         }
 
         [Button]

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Animations;
+using Game.Health;
 
 namespace Game.Enemy
 {
@@ -24,7 +25,7 @@ namespace Game.Enemy
 
         protected bool isAlive = true;
 
-        public virtual void Damage(int damage)
+        public void Damage(int damage, Vector3? direction = null)
         {
             life -= damage;
             _flashColor.Flash();

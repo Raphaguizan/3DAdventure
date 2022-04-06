@@ -1,4 +1,9 @@
-public interface IDamageable
+using UnityEngine;
+
+namespace Game.Health
 {
-    public void Damage(int damage);
+    public interface IDamageable
+    {
+        public void Damage(int damage, Vector3? direction = null);
+    }
 }
