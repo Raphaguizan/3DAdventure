@@ -18,6 +18,30 @@ namespace Game.Enemy.Boss
 
     public class BossStateWalk : BossStateBase
     {
-
+        public override void OnStateEnter(params object[] o)
+        {
+            base.OnStateEnter(o);
+        }
+    }
+    public class BossStateInit : BossStateBase
+    {
+        public override void OnStateEnter(params object[] o)
+        {
+            base.OnStateEnter(o);
+        }
+    }
+    public class BossStateIdle : BossStateBase
+    {
+        public override void OnStateEnter(params object[] o)
+        {
+            base.OnStateEnter(o);
+        }
+    }
+    public class BossStateAttack : BossStateBase
+    {
+        public override void OnStateEnter(params object[] o)
+        {
+            base.OnStateEnter(o);
+        }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8855297165617102160}
   - component: {fileID: 8855297165617102175}
   - component: {fileID: 8855297165617102163}
+  - component: {fileID: 4025731785016940950}
   m_Layer: 0
   m_Name: PFB_Enemy01
   m_TagString: Enemy
@@ -60,11 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa5e111bbac09c4698ead9718529fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
   _timeToDie: 3
   _animCtrl: {fileID: 8855297165617102163}
   _coll: {fileID: 8855297165617102160}
-  _flashColor: {fileID: 542232187142127733}
 --- !u!114 &8855297165617102163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +86,37 @@ MonoBehaviour:
     trigger: Attack
   - type: 4
     trigger: Die
+--- !u!114 &4025731785016940950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8855297165617102162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0fc9b66303b3a4697fee08eaf3f058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _life: 5
+  _currentLife: 0
+  _destoryObj: 0
+  _destoryTime: 1
+  onDieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8855297165617102175}
+        m_TargetAssemblyTypeName: Game.Enemy.EnemyBase, Assembly-CSharp
+        m_MethodName: Kill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8855297166312504112
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,14 +215,3 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7443898874300591051, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
   m_PrefabInstance: {fileID: 8855297164755308565}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &542232187142127733 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9034837230671122528, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
-  m_PrefabInstance: {fileID: 8855297164755308565}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6ad461d3046df4f92d9740142a51de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

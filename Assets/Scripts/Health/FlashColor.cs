@@ -23,15 +23,20 @@ namespace Game.Health
 
         private void OnValidate()
         {
-            if(_renderer != null) _renderer = GetComponent<MeshRenderer>();
-            if(_skinnedMeshRenderer != null) _skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+             _renderer = GetComponent<MeshRenderer>();
+             _skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         }
 
         [Button]
         public void Flash()
         {
             if (!_currentTween.IsActive())
-                _currentTween = _renderer.material.DOColor(_flashColor, "_EmissionColor", _flashDuration).SetEase(_ease).SetLoops(2, LoopType.Yoyo);
+            {
+                if (_renderer != null) 
+                    _currentTween = _renderer.material.DOColor(_flashColor, "_EmissionColor", _flashDuration).SetEase(_ease).SetLoops(2, LoopType.Yoyo);
+                if (_skinnedMeshRenderer != null)
+                    _currentTween = _skinnedMeshRenderer.material.DOColor(_flashColor, "_EmissionColor", _flashDuration).SetEase(_ease).SetLoops(2, LoopType.Yoyo);
+            }
         }
     }
 }

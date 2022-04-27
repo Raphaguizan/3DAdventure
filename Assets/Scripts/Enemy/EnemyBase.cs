@@ -7,11 +7,8 @@ using Game.Health;
 namespace Game.Enemy
 {
 
-    public class EnemyBase : MonoBehaviour, IDamageable
+    public class EnemyBase : MonoBehaviour
     {
-        [SerializeField]
-        protected int life = 5;
-
         [SerializeField]
         protected float _timeToDie;
 
@@ -20,20 +17,10 @@ namespace Game.Enemy
         protected AnimationsController _animCtrl;
         [SerializeField]
         protected Collider _coll;
-        [SerializeField]
-        protected FlashColor _flashColor;
 
         protected bool isAlive = true;
 
-        public void Damage(int damage, Vector3? direction = null)
-        {
-            life -= damage;
-            _flashColor.Flash();
-            if (life <= 0)
-                Kill();
-        }
-
-        protected virtual void Kill()
+        public virtual void Kill()
         {
             if(_coll != null)_coll.enabled = false;
             PlayAnimation(AnimationType.DIE);

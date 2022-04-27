@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
 using NaughtyAttributes;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Health
 {
-    [RequireComponent(typeof(FlashColor))]
     public class HealthBase : MonoBehaviour, IDamageable
     {
         [SerializeField]
@@ -21,12 +19,14 @@ namespace Game.Health
         [SerializeField, ShowIf("_destoryObj")]
         private float _destoryTime = 1f;
 
+        public UnityEvent onDieEvent;
+
 
         public int Life => _life;
         public int CurrentLife => _currentLife;
 
 
-        private FlashColor _flashColor;
+        private FlashColor[] _flashColor;
 
         #region Teste
         [Button]
@@ -37,7 +37,7 @@ namespace Game.Health
         #endregion
         private void OnValidate()
         {
-            _flashColor = GetComponent<FlashColor>();
+            _flashColor = GetComponentsInChildren<FlashColor>();
         }
 
         private void Start()
@@ -47,12 +47,15 @@ namespace Game.Health
 
         public virtual void Damage(int damage, Vector3? direction = null)
         {
-            if(direction != null)
+            if (direction != null)
             {
                 transform.DOMove((Vector3)direction - transform.position, .1f);
             }
             _currentLife--;
-            _flashColor.Flash();
+
+            foreach (var flash in _flashColor)
+                flash.Flash();
+
             if (_currentLife <= 0) Kill();
         }
 
@@ -64,7 +67,7 @@ namespace Game.Health
             }
             else
             {
-                gameObject.SetActive(false);
+                onDieEvent.Invoke();
             }
         }
     }
