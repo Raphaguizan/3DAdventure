@@ -291,7 +291,7 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 10
   minPointDist: 0.5
-  rotationDuration: 0.1
+  rotationDuration: 0.2
   randomIdleTime: {x: 0.2, y: 4}
   randomAttackTime: {x: 2, y: 6}
 --- !u!114 &2392873372309798751
