@@ -52,7 +52,12 @@ namespace Game.Player
 
         public void Move(Vector2 direction)
         {
-            if (!CanMove) return;
+            if (!CanMove)
+            {
+                PlayerStateMachine.ChangeState(PlayerStates.IDLE);
+                _moveDirection = Vector2.zero;
+                return;
+            }
             if (direction == Vector2.zero)
             {
                 if (!PlayerStateMachine.CompareCurrentStateType(PlayerStates.JUMP))

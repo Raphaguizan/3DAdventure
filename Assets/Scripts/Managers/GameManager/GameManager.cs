@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 using Game.Util;
 using Game.StateMachine;
 
@@ -27,5 +27,16 @@ public class GameManager : Singleton<GameManager>
     {
         _stateMachine = new StateMachineBase<GameStates>();
         _stateMachine.SwitchState(GameStates.GAME);
+    }
+
+
+    public void ReloadScene(float delay)
+    {
+        Invoke(nameof(ReloadScene), delay);
+    }
+    public void ReloadScene()
+    {
+        Scene current = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(current.name);
     }
 }

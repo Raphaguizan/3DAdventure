@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Game.StateMachine;
 using Game.Animations;
+using Game.StateMachine;
+using UnityEngine;
 
 namespace Game.Enemy.Boss
 {
@@ -45,7 +43,7 @@ namespace Game.Enemy.Boss
             boss.StopAllCoroutines();
         }
     }
-   
+
     public class BossStateIdle : BossStateBase
     {
         public override void OnStateEnter(params object[] o)
@@ -54,6 +52,7 @@ namespace Game.Enemy.Boss
             boss.Idle();
             boss.animCtrl.Play(AnimationType.IDLE);
         }
+
         public override void OnStateExit()
         {
             boss.StopAllCoroutines();

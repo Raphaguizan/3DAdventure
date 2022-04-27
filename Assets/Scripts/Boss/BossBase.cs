@@ -1,26 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Game.Animations;
-using Game.StateMachine;
-using NaughtyAttributes;
 using DG.Tweening;
-using Game.Util;
+using Game.Animations;
 using Game.Health;
-using Game.Player;
 using Game.Player.Gun;
+using System.Collections;
+using UnityEngine;
 
 
 namespace Game.Enemy.Boss
 {
-    
+
     public class BossBase : MonoBehaviour
     {
         public BossStateMachineBase stateMachine;
         public AnimationsController animCtrl;
         public HealthBase health;
         public GunBase gun;
-        
+
         [Space]
         public Transform path;
         public Transform player;
@@ -78,7 +73,7 @@ namespace Game.Enemy.Boss
         }
         IEnumerator WaitInitAnimation()
         {
-            yield return new WaitWhile(()=> _currentInitTween.IsPlaying());
+            yield return new WaitWhile(() => _currentInitTween.IsPlaying());
             NextAction();
         }
         #endregion
@@ -88,7 +83,7 @@ namespace Game.Enemy.Boss
         {
             _currentPathPoint = path.GetChild(_pathIndex);
             _pathIndex++;
-            if(_pathIndex >= path.childCount)
+            if (_pathIndex >= path.childCount)
                 _pathIndex = 0;
         }
 
@@ -116,7 +111,7 @@ namespace Game.Enemy.Boss
         private void AdjustYHeigth()
         {
             RaycastHit hit;
-            if(Physics.Raycast(transform.position,Vector3.down, out hit))
+            if (Physics.Raycast(transform.position, Vector3.down, out hit))
             {
                 if (hit.transform.CompareTag("Ground"))
                 {

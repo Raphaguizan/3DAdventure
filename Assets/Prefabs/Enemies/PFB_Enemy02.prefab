@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8921836150305929835}
   - component: {fileID: 1698679235477602129}
   - component: {fileID: 98180399278466490}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: PFB_Enemy02
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -101,8 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0fc9b66303b3a4697fee08eaf3f058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageable: 0
   _life: 5
   _currentLife: 0
+  onDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _destoryObj: 0
   _destoryTime: 1
   onDieEvent:
@@ -129,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1698679236154128691}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +162,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1698679236154128691}
     m_Modifications:
+    - target: {fileID: 1657950369398433982, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3035034788997232458, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332235430363973344, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5144924261696689607, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009697485694825824, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039649979385847019, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6169284732743222681, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6281779893053664936, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -170,9 +202,45 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6577725997669864069, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6658164316280714258, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
       propertyPath: m_Name
       value: PFB_MonsterSlime 02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658164316280714258, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773579707765208718, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506612866938507394, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575776855787958656, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656500539328346452, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789641099489225014, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211341452080537360, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458145049939407041, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}

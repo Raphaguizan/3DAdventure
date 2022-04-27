@@ -57,7 +57,7 @@ namespace Game.Health
 
             if (direction != null)
             {
-                transform.DOMove((Vector3)direction - transform.position, .1f);
+                transform.DOMove((Vector3)direction, .1f);
             }
             onDamageEvent.Invoke();
 
