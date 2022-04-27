@@ -10,7 +10,8 @@ namespace Game.Enemy.Boss
         INIT,
         IDLE,
         WALK,
-        ATTACK
+        ATTACK,
+        DIE
     }
     public class BossStateMachineBase : StateMachineBase<BossActions>
     {
@@ -20,6 +21,7 @@ namespace Game.Enemy.Boss
             RegisterState(BossActions.WALK, new BossStateWalk());
             RegisterState(BossActions.INIT, new BossStateInit());
             RegisterState(BossActions.ATTACK, new BossStateAttack());
+            RegisterState(BossActions.DIE, new BossStateDie());
         }
 
         public void Init(BossBase boss) => SwitchState(BossActions.INIT, boss);
@@ -28,7 +30,9 @@ namespace Game.Enemy.Boss
 
         public void Walk(BossBase boss) => SwitchState(BossActions.WALK, boss);
  
-        public void Attack(BossBase boss) => SwitchState(BossActions.ATTACK, boss);
+        public void Attack(BossBase boss, Transform player) => SwitchState(BossActions.ATTACK, boss, player);
+
+        public void Die(BossBase boss) => SwitchState(BossActions.DIE, boss);
 
     }
 }

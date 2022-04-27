@@ -8,6 +8,8 @@ namespace Game.Health
     public class HealthBase : MonoBehaviour, IDamageable
     {
         [SerializeField]
+        private bool _damageable = true;
+        [SerializeField]
         private int _life = 10;
 
         [SerializeField, ReadOnly]
@@ -25,7 +27,7 @@ namespace Game.Health
 
         public int Life => _life;
         public int CurrentLife => _currentLife;
-
+        public bool Damageable { get => _damageable; set => _damageable = value; }
 
         private FlashColor[] _flashColor;
 
@@ -48,6 +50,9 @@ namespace Game.Health
 
         public virtual void Damage(int damage, Vector3? direction = null)
         {
+            if (!_damageable)
+                return;
+
             _currentLife--;
 
             if (direction != null)
