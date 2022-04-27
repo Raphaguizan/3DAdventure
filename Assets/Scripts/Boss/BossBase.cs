@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.StateMachine;
+using NaughtyAttributes;
+
 
 namespace Game.Enemy.Boss
 {
-    public enum BossActions
-    {
-        INIT,
-        IDLE,
-        WALK,
-        ATTACK
-    }
+    
     public class BossBase : MonoBehaviour
     {
-        private StateMachineBase<BossActions> _bossStateMachine = new StateMachineBase<BossActions>();
+        public BossStateMachineBase stateMachine;
 
-        public void Init()
+        private void Awake()
         {
-            _bossStateMachine.RegisterState(BossActions.WALK, new BossStateWalk());
+            stateMachine.Initialize();
+            stateMachine.Init(this);
+        }
+
+        [Button]
+        public void Walk()
+        {
+            stateMachine?.Walk(this);
         }
     }
 }

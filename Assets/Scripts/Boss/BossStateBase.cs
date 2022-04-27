@@ -21,6 +21,7 @@ namespace Game.Enemy.Boss
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            Debug.Log("entrou no walk");
         }
     }
     public class BossStateInit : BossStateBase
@@ -28,6 +29,7 @@ namespace Game.Enemy.Boss
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            Debug.Log("entrou no Init");
         }
     }
     public class BossStateIdle : BossStateBase
@@ -35,6 +37,7 @@ namespace Game.Enemy.Boss
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            Debug.Log("entrou no Idle");
         }
     }
     public class BossStateAttack : BossStateBase
@@ -42,6 +45,7 @@ namespace Game.Enemy.Boss
         public override void OnStateEnter(params object[] o)
         {
             base.OnStateEnter(o);
+            Debug.Log("entrou no Attack");
         }
     }
 }

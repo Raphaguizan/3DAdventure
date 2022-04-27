@@ -12,6 +12,7 @@ namespace Game.Health
 
         [SerializeField, ReadOnly]
         private int _currentLife = 0;
+        public UnityEvent onDamageEvent;
 
         [SerializeField, Space]
         private bool _destoryObj = false;
@@ -47,11 +48,13 @@ namespace Game.Health
 
         public virtual void Damage(int damage, Vector3? direction = null)
         {
+            _currentLife--;
+
             if (direction != null)
             {
                 transform.DOMove((Vector3)direction - transform.position, .1f);
             }
-            _currentLife--;
+            onDamageEvent.Invoke();
 
             foreach (var flash in _flashColor)
                 flash.Flash();
