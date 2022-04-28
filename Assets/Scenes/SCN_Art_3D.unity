@@ -11499,7 +11499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageable: 1
-  _life: 10
+  _life: 10000
   _currentLife: 0
   onDamageEvent:
     m_PersistentCalls:
@@ -11523,7 +11523,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 668978335}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
+        m_MethodName: SetTrigger
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15512,7 +15512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1698679235477602140, guid: d661136075e26924ba02522070d6beec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.22
+      value: -6.3
       objectReference: {fileID: 0}
     - target: {fileID: 1698679235477602140, guid: d661136075e26924ba02522070d6beec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15681,10 +15681,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1743456004}
-    - target: {fileID: 2392873372309798744, guid: fb000137c29661f4c844a6740654cdce, type: 3}
-      propertyPath: rotationDuration
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb000137c29661f4c844a6740654cdce, type: 3}
 --- !u!1001 &3791741116794296813

@@ -19,6 +19,8 @@ namespace Game.Enemy.Boss
         [Space]
         public Transform path;
         public Transform player;
+        [Space]
+        public LayerMask layerMask;
 
         [Space]
         public float speed = 10f;
@@ -111,14 +113,13 @@ namespace Game.Enemy.Boss
         private void AdjustYHeigth()
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit))
+            Vector3 posAux = transform.position;
+            posAux.y += 10;
+
+            if (Physics.Raycast(posAux, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, ~layerMask))
             {
-                if (hit.transform.CompareTag("Ground"))
-                {
-                    Vector3 aux = transform.position;
-                    aux.y = hit.transform.position.y;
-                    transform.position = aux;
-                }
+                Debug.DrawLine(posAux, hit.point, Color.green);
+                transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
             }
         }
         #endregion

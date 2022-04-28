@@ -30,6 +30,7 @@ namespace Game.Health
         public bool Damageable { get => _damageable; set => _damageable = value; }
 
         private FlashColor[] _flashColor;
+        private bool _alive = true;
 
         #region Teste
         [Button]
@@ -40,12 +41,13 @@ namespace Game.Health
         #endregion
         private void OnValidate()
         {
-            _flashColor = GetComponentsInChildren<FlashColor>();
+            if(_flashColor == null)_flashColor = GetComponentsInChildren<FlashColor>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             _currentLife = _life;
+            _alive = true;
         }
 
         public virtual void Damage(int damage, Vector3? direction = null)
@@ -64,11 +66,12 @@ namespace Game.Health
             foreach (var flash in _flashColor)
                 flash.Flash();
 
-            if (_currentLife <= 0) Kill();
+            if (_currentLife <= 0 && _alive) Kill();
         }
 
         public virtual void Kill()
         {
+            _alive = false;
             if (_destoryObj)
             {
                 Destroy(gameObject, _destoryTime);

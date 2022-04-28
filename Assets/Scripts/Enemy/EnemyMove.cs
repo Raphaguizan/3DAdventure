@@ -16,10 +16,12 @@ namespace Game.Enemy
         [Space, SerializeField, NaughtyAttributes.ReadOnly]
         private Vector2 _randomDirection;
 
+        public LayerMask layerMask; 
         private void Awake()
         {
             StartCoroutine(CheckRandomTime());
             PlayAnimation(Animations.AnimationType.RUN);
+            //layerMask = gameObject.layer << gameObject.layer;
         }
         private void Update()
         {
@@ -43,7 +45,7 @@ namespace Game.Enemy
             Vector3 posAux = transform.position;
             posAux.y += 10;
 
-            if (Physics.Raycast(posAux, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity))// && hit.transform.CompareTag("Ground"))
+            if (Physics.Raycast(posAux, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, ~layerMask))
             {
                 Debug.DrawLine(posAux, hit.point, Color.green);
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);

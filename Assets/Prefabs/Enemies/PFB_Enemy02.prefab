@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1698679235477602140}
+  - component: {fileID: 7590041465281475455}
   - component: {fileID: 1698679235477602130}
   - component: {fileID: 8921836150305929835}
   - component: {fileID: 1698679235477602129}
   - component: {fileID: 98180399278466490}
+  - component: {fileID: 3188952047401017266}
   m_Layer: 8
   m_Name: PFB_Enemy02
   m_TagString: Enemy
@@ -35,6 +37,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!54 &7590041465281475455
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698679235477602128}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!136 &1698679235477602130
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -67,6 +85,9 @@ MonoBehaviour:
   _speed: 5
   _randomTime: {x: 1, y: 3}
   _randomDirection: {x: 0, y: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1698679235477602129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +145,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3188952047401017266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698679235477602128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef631328c9201ef44bbb42c5ec3e955d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  damage: 1
 --- !u!1 &1698679236154128690
 GameObject:
   m_ObjectHideFlags: 0

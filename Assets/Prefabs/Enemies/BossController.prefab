@@ -289,6 +289,9 @@ MonoBehaviour:
   gun: {fileID: 2392873371313022479}
   path: {fileID: 2392873371898621018}
   player: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
   speed: 10
   minPointDist: 0.5
   rotationDuration: 0.2
