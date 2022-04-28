@@ -15,6 +15,8 @@ namespace Game.CheckPoint
 
         private MeshRenderer render;
         private bool _active = false;
+
+        public bool Active => _active;
         private void Awake()
         {
             render = GetComponentInChildren<MeshRenderer>();

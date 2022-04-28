@@ -13,6 +13,7 @@ namespace Game.Player
         public bool CanMove { get; set; }
 
         public CharacterController controller;
+        public SO_DiePos diePos;
 
         public float speed = 10f;
         public float sprintModifier = 1.5f;
@@ -32,7 +33,7 @@ namespace Game.Player
         IEnumerator Start()
         {
             yield return new WaitUntil(()=> CheckPointManager.LoadComplete);
-            Vector3 resp = CheckPointManager.GetRespawnPos();
+            Vector3 resp = CheckPointManager.GetRespawnClosiestPos();
             if(resp != Vector3.zero)
                 transform.position = resp;
         }
@@ -111,6 +112,11 @@ namespace Game.Player
             {
                 PlayerStateMachine.ChangeState(PlayerStates.IDLE);
             }
+        }
+
+        public void SetDiePos()
+        {
+            diePos.pos = transform.position;
         }
     }
 }

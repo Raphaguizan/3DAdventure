@@ -8,7 +8,7 @@ namespace Game.CheckPoint
     public class CheckPointManager : Singleton<CheckPointManager>
     {
         private readonly string _keyName = "CheckPoint";
-
+        public SO_DiePos diePos;
         [SerializeField]
         private CheckPointBase _lastCheckPoint = null;
 
@@ -29,9 +29,9 @@ namespace Game.CheckPoint
 
         protected override void Awake()
         {
+            base.Awake();
             _checks = new List<CheckPointBase>();
             _loadComplete = false;
-            base.Awake();
         }
         
         private void OnEnable()
@@ -75,6 +75,28 @@ namespace Game.CheckPoint
                 return Vector3.zero;
 
             return Instance._lastCheckPoint.transform.position;
+        }
+
+        public static Vector3 GetRespawnClosiestPos()
+        {
+            if (Instance._lastCheckPoint == null)
+                return Vector3.zero;
+
+            CheckPointBase aux = null;
+            float minDist = 9999999f;
+            foreach (CheckPointBase c in Instance._checks)
+            {
+                float currentDist = Vector3.Distance(Instance.diePos.pos, c.transform.position);
+                if (currentDist < minDist && c.Active)
+                {
+                    minDist = currentDist;
+                    aux = c;
+                }
+            }
+            if(aux == null)
+                return Vector3.zero;
+
+            return aux.transform.position;
         }
     }
 }
