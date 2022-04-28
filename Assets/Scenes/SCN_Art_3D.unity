@@ -11749,7 +11749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageable: 1
-  _life: 1
+  _life: 10
   _currentLife: 0
   onDamageEvent:
     m_PersistentCalls:
