@@ -1,7 +1,9 @@
 using DG.Tweening;
 using Game.Player.StateMachine;
 using System;
+using System.Collections;
 using UnityEngine;
+using Game.CheckPoint;
 
 namespace Game.Player
 {
@@ -20,10 +22,19 @@ namespace Game.Player
 
         private Vector3 _moveDirection = Vector3.zero;
         private float _verticalSpeed = 0f;
-        private void Start()
+
+        private void Awake()
         {
             controller = GetComponent<CharacterController>();
             CanMove = true;
+        }
+
+        IEnumerator Start()
+        {
+            yield return new WaitUntil(()=> CheckPointManager.LoadComplete);
+            Vector3 resp = CheckPointManager.GetRespawnPos();
+            if(resp != Vector3.zero)
+                transform.position = resp;
         }
 
         private void Update()
