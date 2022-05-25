@@ -3697,7 +3697,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568302224}
-  m_LocalRotation: {x: 0.26807758, y: 0.000000016576582, z: -0.0000000046126445, w: 0.9633973}
+  m_LocalRotation: {x: 0.26807758, y: -0.000000016576584, z: 0.000000004612645, w: 0.9633973}
   m_LocalPosition: {x: -0.024169922, y: 10.538111, z: -20.344906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10760,7 +10760,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.26807758, y: 0.000000016576582, z: -0.0000000046126445, w: 0.9633973}
+  m_LocalRotation: {x: 0.26807758, y: -0.000000016576584, z: 0.000000004612645, w: 0.9633973}
   m_LocalPosition: {x: 0.8500061, y: 10.610004, z: -32.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -13054,6 +13054,7 @@ GameObject:
   - component: {fileID: 1743456002}
   - component: {fileID: 1743456006}
   - component: {fileID: 1743456001}
+  - component: {fileID: 1743456010}
   - component: {fileID: 1743456003}
   - component: {fileID: 1743456007}
   - component: {fileID: 1743456005}
@@ -13079,6 +13080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 1743456003}
   abillity: {fileID: 1743456007}
+  actions: {fileID: 1743456010}
 --- !u!143 &1743456002
 CharacterController:
   m_ObjectHideFlags: 0
@@ -13214,6 +13216,9 @@ MonoBehaviour:
   _damageable: 1
   _life: 10
   _currentLife: 0
+  onHealEvent:
+    m_PersistentCalls:
+      m_Calls: []
   onDamageEvent:
     m_PersistentCalls:
       m_Calls:
@@ -13344,6 +13349,19 @@ CapsuleCollider:
   m_Height: 3.656351
   m_Direction: 1
   m_Center: {x: 0.068618774, y: 1.8328152, z: 0}
+--- !u!114 &1743456010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743456000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d9118727c2fe54786b2a3033488354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 1743456008}
 --- !u!1 &1744833093
 GameObject:
   m_ObjectHideFlags: 0
@@ -17958,7 +17976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2392873370554800045, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2392873372309798744, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: player

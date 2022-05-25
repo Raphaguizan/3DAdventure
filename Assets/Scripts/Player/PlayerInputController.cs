@@ -10,6 +10,7 @@ namespace Game.Player
 
         public PlayerMovement movement;
         public PlayerAbillityBase abillity;
+        public PlayerAction actions;
 
         private void Update()
         {
@@ -57,6 +58,11 @@ namespace Game.Player
                 AbillityShoot aux = (AbillityShoot)abillity;
                 aux.ChangeGun((int)value.Get<float>() -1);
             }
+        }
+
+        private void OnUseItem(InputValue value)
+        {
+            actions.MakeAction();
         }
     }
 }

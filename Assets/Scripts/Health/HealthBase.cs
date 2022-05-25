@@ -11,9 +11,11 @@ namespace Game.Health
         private bool _damageable = true;
         [SerializeField]
         private int _life = 10;
-
         [SerializeField, ReadOnly]
         private int _currentLife = 0;
+
+        [Space]
+        public UnityEvent onHealEvent;
         public UnityEvent onDamageEvent;
 
         [SerializeField, Space]
@@ -27,6 +29,7 @@ namespace Game.Health
 
         public int Life => _life;
         public int CurrentLife => _currentLife;
+        public bool IsFull => CurrentLife == Life;
         public bool Damageable { get => _damageable; set => _damageable = value; }
 
         private FlashColor[] _flashColor;
@@ -57,6 +60,12 @@ namespace Game.Health
 
             _currentLife--;
 
+            if (_currentLife <= 0 && _alive)
+            {
+                Kill();
+                return;
+            }
+
             if (direction != null)
             {
                 transform.DOMove((Vector3)direction, .1f);
@@ -65,20 +74,26 @@ namespace Game.Health
 
             foreach (var flash in _flashColor)
                 flash.Flash();
+        }
 
-            if (_currentLife <= 0 && _alive) Kill();
+        public virtual void AddHealth(int amount)
+        {
+            if (amount <= 0 || IsFull) return;
+
+            _currentLife += amount;
+            onHealEvent.Invoke();
+
+            if(_currentLife > _life)
+                _currentLife = _life;
         }
 
         public virtual void Kill()
         {
             _alive = false;
+            onDieEvent.Invoke();
             if (_destoryObj)
             {
                 Destroy(gameObject, _destoryTime);
-            }
-            else
-            {
-                onDieEvent.Invoke();
             }
         }
     }

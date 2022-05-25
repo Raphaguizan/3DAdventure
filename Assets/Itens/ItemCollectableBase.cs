@@ -49,7 +49,7 @@ namespace Game.Item
         protected virtual void OnCollet() 
         {
             _ = ItensManager.AddItem(type);
-            Debug.Log("coletando moeda " + gameObject.name);
+            // Debug.Log("coletando moeda " + gameObject.name);
         }
     }
 }

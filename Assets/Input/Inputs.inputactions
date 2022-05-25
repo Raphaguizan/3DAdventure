@@ -27,7 +27,15 @@
                     "id": "11d8475b-89dc-482e-8dc4-f50ab8514a90",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
+                },
+                {
+                    "name": "UseItem",
+                    "type": "Button",
+                    "id": "8dc6a0d1-7a40-44bd-886a-767d314cc404",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -149,6 +157,17 @@
                     "processors": "Scale(factor=9)",
                     "groups": "Mouse&Keyboard",
                     "action": "ChangeGun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fea82897-e4b0-41cc-a86e-de88e28860bd",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse&Keyboard",
+                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

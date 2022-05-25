@@ -14,7 +14,7 @@ public class CollisionDamage : MonoBehaviour
         var damageable = collision.gameObject.GetComponent<IDamageable>();
         if (damageable != null && collision.gameObject.CompareTag(playerTag))
         {
-            damageable.Damage(damage, (collision.transform.position - transform.position) *2);
+            damageable.Damage(damage);//, (collision.transform.position - transform.position) *2);
         }
     }
 }

@@ -19,14 +19,14 @@ public class LifeBarManager : MonoBehaviour
     public void Start()
     {
         maxLife = healthToTrack.Life;
+        healthToTrack.onHealEvent.AddListener(UpdateInterface);
         healthToTrack.onDamageEvent.AddListener(UpdateInterface);
     }
 
     public void UpdateInterface()
     {
-        if(_tween != null)
-            if(_tween.IsPlaying())
-                _tween.Complete();
+        if(_tween != null && _tween.IsPlaying())
+            _tween.Complete();
 
         _tween = lifeBar.DOFillAmount((float)healthToTrack.CurrentLife / maxLife, _animationDuration).SetEase(_animationEase);
     }
