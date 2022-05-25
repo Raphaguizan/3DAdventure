@@ -24,14 +24,20 @@ namespace Game.Item
             }
         }
 
-        public static void AddItem(ItemType type, int amount = 1)
+        public static bool AddItem(ItemType type, int amount = 1)
         {
             var item = Instance.itemSetups.Find(i => i.Type.Equals(type));
 
             if((item.Value + amount) < 0)
+            {
                 item.Value = 0;
+                return false;
+            }
             else
+            {
                 item.Value += amount;
+                return true;
+            }
         }
 
         private void RefreshUI()

@@ -7,10 +7,14 @@ namespace Game.Item
     [RequireComponent(typeof(Collider))]
     public class ItemCollectableBase : MonoBehaviour
     {
+        public ItemType type;
         [Header("Collectable"), NaughtyAttributes.Tag]
         public string playerTag = "Player";
         public float timeToDestroy = 3f;
         public GameObject Image;
+        [Header("Effects")]
+        public ParticleSystem particles;
+        public AudioSource audioSource;
 
         private Collider _collisionBox;
         private void Awake()
@@ -30,6 +34,8 @@ namespace Game.Item
         protected virtual void Collect()
         {
             OnCollet();
+            if(audioSource) audioSource.Play();
+            if(particles) particles.Play();
             DisableObj();
         }
 
@@ -40,6 +46,10 @@ namespace Game.Item
             Destroy(gameObject, timeToDestroy);
         }
 
-        protected virtual void OnCollet() { }
+        protected virtual void OnCollet() 
+        {
+            _ = ItensManager.AddItem(type);
+            Debug.Log("coletando moeda " + gameObject.name);
+        }
     }
 }
