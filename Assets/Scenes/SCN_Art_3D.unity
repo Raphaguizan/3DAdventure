@@ -3831,7 +3831,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568302224}
-  m_LocalRotation: {x: 0.26807758, y: 0.000000016576582, z: -0.0000000046126445, w: 0.9633973}
+  m_LocalRotation: {x: 0.26807758, y: -0.000000016576584, z: 0.000000004612645, w: 0.9633973}
   m_LocalPosition: {x: -0.024169922, y: 10.538111, z: -20.344906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4357,7 +4357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4860986031736423325, guid: a05e1e26e0d0b804bbd7d68973550dae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.3
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 4860986031736423325, guid: a05e1e26e0d0b804bbd7d68973550dae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5375,12 +5375,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -10895,7 +10895,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.26807758, y: 0.000000016576582, z: -0.0000000046126445, w: 0.9633973}
+  m_LocalRotation: {x: 0.26807758, y: -0.000000016576584, z: 0.000000004612645, w: 0.9633973}
   m_LocalPosition: {x: 0.8500061, y: 10.610004, z: -32.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -18349,7 +18349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4860986031736423325, guid: a05e1e26e0d0b804bbd7d68973550dae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.97
+      value: -5.2
       objectReference: {fileID: 0}
     - target: {fileID: 4860986031736423325, guid: a05e1e26e0d0b804bbd7d68973550dae, type: 3}
       propertyPath: m_LocalPosition.z

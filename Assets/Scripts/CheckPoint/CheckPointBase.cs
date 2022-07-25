@@ -10,7 +10,7 @@ namespace Game.CheckPoint
         public int keyValue;
         [SerializeField, Tag]
         private string PlayerTag = "Player";
-        [SerializeField]
+        [SerializeField, ColorUsage(true, true)]
         private Color _activeColor;
 
         private MeshRenderer render;
@@ -47,7 +47,7 @@ namespace Game.CheckPoint
                 return;
 
             CheckPointManager.SaveCheckPoint(this);
-            if(render) render.material.color = _activeColor;
+            if(render) render.material.SetColor("_EmissionColor",_activeColor);
 
             _active = true;
         }
