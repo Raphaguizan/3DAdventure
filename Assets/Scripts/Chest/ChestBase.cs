@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using NaughtyAttributes;
 using Game.Player;
+using Game.Item;
 
 public class ChestBase : MonoBehaviour
 {
@@ -19,6 +20,14 @@ public class ChestBase : MonoBehaviour
     private string _playerCloseKey = "PlayerClose";
     [SerializeField]
     private string _openKey = "Open";
+
+    [Space, SerializeField]
+    private ParticleSystem _particle;
+
+    [Space, SerializeField]
+    private ItemType _itemType;
+    [SerializeField]
+    private int itemNum;
 
     [Space]
     public UnityEvent OnOpenCallBack;
@@ -52,6 +61,13 @@ public class ChestBase : MonoBehaviour
         _animator.SetBool(_openKey, IsOpen);
 
         PlayerInputController.OnInteractCallBack -= OpenChest;
+        ItemCollect();
         OnOpenCallBack.Invoke();
+    }
+
+    private void ItemCollect()
+    {
+        if(_particle)_particle.Play();
+        ItensManager.AddItem(_itemType, itemNum);
     }
 }
