@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 192860403247030459}
+  - component: {fileID: 635390893}
+  - component: {fileID: 635390892}
+  - component: {fileID: 635390894}
   m_Layer: 0
   m_Name: PFB_Chest
   m_TagString: Untagged
@@ -33,6 +36,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &635390893
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713535970505882113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6030273, y: 2.673388, z: 3.8168068}
+  m_Center: {x: -0.016906738, y: 1.3099749, z: 2.1183224}
+--- !u!95 &635390892
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713535970505882113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26fe2ffa26340f94ca285827e75d7d59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &635390894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713535970505882113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4558d3b79a15a4e8bba392bc18d1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTag: Player
+  _animator: {fileID: 635390892}
+  _playerCloseKey: PlayerClose
+  _openKey: Open
+  OnOpenCallBack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2514979340868379611
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +180,7 @@ GameObject:
   - component: {fileID: 2504100619039525848}
   - component: {fileID: 2808576186930031137}
   - component: {fileID: 5504796456324454272}
+  - component: {fileID: 811999579607159690}
   m_Layer: 0
   m_Name: MDLChestBase_low
   m_TagString: Untagged
@@ -196,6 +251,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &811999579607159690
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934803900739037237}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.032006636, y: 0.0194896, z: 0.013578079}
+  m_Center: {x: 0, y: -2.3668198e-10, z: 0.0060291346}
 --- !u!1 &6776931282549636460
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +275,7 @@ GameObject:
   - component: {fileID: 4166777190306732377}
   - component: {fileID: 7762856489245468249}
   - component: {fileID: 8112533551757736142}
+  - component: {fileID: 3002402238515500003}
   m_Layer: 0
   m_Name: MDLChestTop_low
   m_TagString: Untagged
@@ -221,7 +290,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6776931282549636460}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 1.1291809, z: -0.9688162}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -277,3 +346,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3002402238515500003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6776931282549636460}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0353379, y: 0.02381964, z: 0.0060955826}
+  m_Center: {x: 0, y: -0.010402803, z: 0.003520058}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Game.Player.Abillity;
@@ -11,6 +12,8 @@ namespace Game.Player
         public PlayerMovement movement;
         public PlayerAbillityBase abillity;
         public PlayerAction actions;
+
+        public static Action OnInteractCallBack;
 
         private void Update()
         {
@@ -63,6 +66,11 @@ namespace Game.Player
         private void OnUseItem(InputValue value)
         {
             actions.MakeAction();
+        }
+
+        private void OnInteract(InputValue value)
+        {
+            OnInteractCallBack?.Invoke();
         }
     }
 }
