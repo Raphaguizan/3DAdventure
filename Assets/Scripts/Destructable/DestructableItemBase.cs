@@ -54,6 +54,7 @@ public class DestructableItemBase : MonoBehaviour
         var newItem = Instantiate(_item);
         _maxItem--;
         newItem.transform.position = _spawnTransform.position;
-        newItem.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere.normalized * _spawnForce, ForceMode.Impulse);
+        Vector3 randomDir = Random.insideUnitSphere.normalized;
+        newItem.GetComponent<Rigidbody>().AddForce(randomDir * _spawnForce, ForceMode.Impulse);
     }
 }
