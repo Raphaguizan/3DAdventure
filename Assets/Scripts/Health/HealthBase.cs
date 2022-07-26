@@ -98,11 +98,11 @@ namespace Game.Health
             }
         }
 
-        public void MakeIvunerable(float duration)
+        public void MakeInvulnerable(float duration)
         {
-            StartCoroutine (IvunerableCoroutine(duration));
+            StartCoroutine (InvulnerableCoroutine(duration));
         }
-        IEnumerator IvunerableCoroutine(float duration)
+        IEnumerator InvulnerableCoroutine(float duration)
         {
             _damageable = false;
             yield return new WaitForSeconds (duration);

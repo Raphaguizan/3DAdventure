@@ -7,6 +7,7 @@ namespace Game.Item
     public enum ItemType
     {
         COIN,
-        LIFE_PACK
+        LIFE_PACK,
+        CLOTH
     }
 }

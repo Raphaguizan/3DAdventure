@@ -16,18 +16,24 @@ namespace Game.Item
         public ParticleSystem particles;
         public AudioSource audioSource;
 
+        protected GameObject playerGO;
+
         private Collider[] _collisionBox;
         private void Awake()
         {
             _collisionBox = GetComponents<Collider>();
             foreach (Collider coll in _collisionBox)
                 coll.enabled = true;
+            Initialize();
         }
+
+        protected virtual void Initialize(){}
 
         private void OnTriggerEnter(Collider collision)
         {
             if (collision.transform.CompareTag(playerTag))
             {
+                playerGO = collision.gameObject;
                 Collect();
             }
         }

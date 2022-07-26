@@ -29,6 +29,18 @@ namespace Game.Cloth
             ChangeCloth(ClothManager.GetClothByType(type));
         }
 
+        public void ChangeCloth(ClothType type, float duration)
+        {
+            StartCoroutine(ChangeClothTime(type, duration));
+        }
+
+        IEnumerator ChangeClothTime(ClothType type, float duration)
+        {
+            ChangeCloth(type);
+            yield return new WaitForSeconds(duration);
+            ResetCloth();
+        }
+
         public void ResetCloth()
         {
             ChangeCloth(ClothType.DEFAULT);
