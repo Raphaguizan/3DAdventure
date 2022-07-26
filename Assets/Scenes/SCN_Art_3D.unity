@@ -4046,7 +4046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3420249268492832841, guid: 9f6cd87123619124a82f1577e6801c17, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 431.3
+      value: 422.6
       objectReference: {fileID: 0}
     - target: {fileID: 3420249268492832841, guid: 9f6cd87123619124a82f1577e6801c17, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18185,7 +18185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2392873370554800045, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2392873372309798744, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: player
@@ -18473,6 +18473,18 @@ PrefabInstance:
     - target: {fileID: 3205581118381426599, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
       propertyPath: m_Name
       value: DestructableTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829415112673326616, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829415112673326616, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829415112673326616, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -48.8
       objectReference: {fileID: 0}
     - target: {fileID: 8578640449512303390, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
       propertyPath: m_RootOrder
