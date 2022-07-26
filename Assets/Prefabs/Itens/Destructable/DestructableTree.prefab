@@ -77,8 +77,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8651af04c4ecf4443bcbf8e27af28d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 1030165469185503676}
   _shakeDuration: 0.2
   _shakeIntensity: 1
+  _item: {fileID: 3420249268492832852, guid: 41a4e7b7558731c4d8edd08a44416c20, type: 3}
+  _spawnTransform: {fileID: 6032236744249807076}
+  _spawnForce: 10
+  _maxItem: 10
+  _SpawnChance: 0.5
 --- !u!114 &1030165469185503676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageable: 1
-  _life: 10
+  _life: 1000
   _currentLife: 0
   onHealEvent:
     m_PersistentCalls:
@@ -140,8 +146,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.304168, y: 3.816956, z: 1.3228654}
-  m_Center: {x: -0.0043575466, y: 1.9084778, z: 0.05689597}
+  m_Size: {x: 3.9941406, y: 14.980137, z: 3.5848923}
+  m_Center: {x: 0.056793213, y: 7.4900684, z: 0.14860153}
 --- !u!1001 &7829415112672930968
 PrefabInstance:
   m_ObjectHideFlags: 0

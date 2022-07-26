@@ -16,11 +16,12 @@ namespace Game.Item
         public ParticleSystem particles;
         public AudioSource audioSource;
 
-        private Collider _collisionBox;
+        private Collider[] _collisionBox;
         private void Awake()
         {
-            _collisionBox = GetComponent<Collider>();
-            _collisionBox.enabled = true;
+            _collisionBox = GetComponents<Collider>();
+            foreach (Collider coll in _collisionBox)
+                coll.enabled = true;
         }
 
         private void OnTriggerEnter(Collider collision)
@@ -42,7 +43,10 @@ namespace Game.Item
         protected virtual void DisableObj()
         {
             Image.SetActive(false);
-            _collisionBox.enabled = false;
+
+            foreach (Collider coll in _collisionBox)
+                coll.enabled = false;
+
             Destroy(gameObject, timeToDestroy);
         }
 
