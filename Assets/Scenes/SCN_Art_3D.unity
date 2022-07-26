@@ -4145,7 +4145,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d9f1f582ca5fc14588036094172c9cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4442,9 +4442,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 1
+      minMaxState: 3
+      scalar: 0.6
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4495,7 +4495,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -4548,7 +4548,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -4601,7 +4601,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -4654,7 +4654,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -4707,9 +4707,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
-      minScalar: 0
+      minMaxState: 3
+      scalar: 0.0034906585
+      minScalar: -0.0034906585
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -22974,7 +22974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2392873370554800045, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392873372309798744, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: player
@@ -23230,18 +23230,6 @@ PrefabInstance:
     - target: {fileID: 3205581118381426599, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
       propertyPath: m_Name
       value: DestructableTree
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829415112673326616, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829415112673326616, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829415112673326616, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -48.8
       objectReference: {fileID: 0}
     - target: {fileID: 8578640449512303390, guid: 3c12458050e61d84e82d57310e2a232f, type: 3}
       propertyPath: m_RootOrder
