@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 7703423336758522442}
   - component: {fileID: 8437827540430812293}
   - component: {fileID: 7914451247677163752}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PFB_GroundStone02
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7703423336758522442
 Transform:

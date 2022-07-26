@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 9131503876353183157}
   - component: {fileID: 5315004684146677145}
   - component: {fileID: 4445480045150804057}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PFB_GroundRock05
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8391976400090115252
 Transform:
