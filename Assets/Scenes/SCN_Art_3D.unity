@@ -7377,6 +7377,7 @@ Transform:
   m_Children:
   - {fileID: 355236872}
   - {fileID: 1328961096}
+  - {fileID: 2051504737}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13262,6 +13263,7 @@ GameObject:
   - component: {fileID: 1743456003}
   - component: {fileID: 1743456007}
   - component: {fileID: 1743456005}
+  - component: {fileID: 1743456011}
   - component: {fileID: 1743456008}
   m_Layer: 3
   m_Name: Player
@@ -13566,6 +13568,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 1743456008}
+--- !u!114 &1743456011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743456000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432019905f5a5ed40917fa3c6f715375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 654bef3b2bab6c74abadff7014af75f6, type: 2}
+  _textureKey: _EmissionMap
+  _testType: 0
 --- !u!1 &1744833093
 GameObject:
   m_ObjectHideFlags: 0
@@ -17122,6 +17139,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 2048731181}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2051504736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051504737}
+  - component: {fileID: 2051504738}
+  m_Layer: 0
+  m_Name: ClothManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2051504737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051504736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 982773845}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2051504738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051504736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af73090a6eb31244898aa02fe3e5b4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clothList:
+  - type: 0
+    texture: {fileID: 2800000, guid: 8d0f7b33a4f3bf5459574270675b2718, type: 3}
+  - type: 1
+    texture: {fileID: 2800000, guid: 107778ad7ce33b24383b4224bf6a4a0f, type: 3}
+  - type: 2
+    texture: {fileID: 2800000, guid: 87616c22278974c4c9e53acfd0dacfd2, type: 3}
 --- !u!1001 &2071971932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18185,7 +18252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2392873370554800045, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392873372309798744, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: player
