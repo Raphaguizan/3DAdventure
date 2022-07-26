@@ -2,6 +2,7 @@ using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace Game.Health
 {
@@ -95,6 +96,17 @@ namespace Game.Health
             {
                 Destroy(gameObject, _destoryTime);
             }
+        }
+
+        public void MakeIvunerable(float duration)
+        {
+            StartCoroutine (IvunerableCoroutine(duration));
+        }
+        IEnumerator IvunerableCoroutine(float duration)
+        {
+            _damageable = false;
+            yield return new WaitForSeconds (duration);
+            _damageable = true;
         }
     }
 }

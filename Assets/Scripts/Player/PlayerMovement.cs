@@ -23,11 +23,13 @@ namespace Game.Player
 
         private Vector3 _moveDirection = Vector3.zero;
         private float _verticalSpeed = 0f;
+        private float _initialSpeed;
 
         private void Awake()
         {
             controller = GetComponent<CharacterController>();
             CanMove = true;
+            _initialSpeed = speed;
         }
 
         IEnumerator Start()
@@ -117,6 +119,18 @@ namespace Game.Player
         public void SetDiePos()
         {
             diePos.pos = transform.position;
+        }
+
+        public void SpeedBust(float mutiply, float duration)
+        {
+            StartCoroutine(SpeedBustCoroutine(mutiply, duration));
+        }
+
+        IEnumerator SpeedBustCoroutine(float mutiply, float duration)
+        {
+            speed *= mutiply;
+            yield return new WaitForSeconds(duration);
+            speed = _initialSpeed;
         }
     }
 }
