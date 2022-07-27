@@ -19,11 +19,9 @@ namespace Game.Player
             if (health.IsFull) return;
             if(ItensManager.AddItem(ItemType.LIFE_PACK, -1))
             {
-                Debug.Log("cura True");
                 health.AddHealth(5);
                 return;
             }
-            Debug.Log("cura false");
         }
     }
 }

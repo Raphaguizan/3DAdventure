@@ -55,7 +55,6 @@ namespace Game.Player
         }
         private void OnChangeGun(InputValue value)
         {
-            Debug.Log((int)value.Get<float>());
             if(abillity is AbillityShoot)
             {
                 AbillityShoot aux = (AbillityShoot)abillity;

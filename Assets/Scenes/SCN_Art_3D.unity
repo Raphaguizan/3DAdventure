@@ -32642,10 +32642,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossController
       objectReference: {fileID: 0}
-    - target: {fileID: 2392873370554800045, guid: fb000137c29661f4c844a6740654cdce, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2392873372309798744, guid: fb000137c29661f4c844a6740654cdce, type: 3}
       propertyPath: player
       value: 

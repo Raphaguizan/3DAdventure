@@ -15,6 +15,7 @@ namespace Game.Enemy.Boss
         public AnimationsController animCtrl;
         public HealthBase health;
         public GunBase gun;
+        public GameObject lifeHUD;
 
         [Space]
         public Transform path;
@@ -40,6 +41,7 @@ namespace Game.Enemy.Boss
         {
             stateMachine.Initialize();
             stateMachine.Init(this);
+            lifeHUD.SetActive(false);
         }
 
         #region ACTIONS CONTROLLER

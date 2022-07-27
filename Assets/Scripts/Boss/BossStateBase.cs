@@ -25,6 +25,7 @@ namespace Game.Enemy.Boss
         public override void OnStateExit()
         {
             boss.health.Damageable = true;
+            boss.lifeHUD.SetActive(true);
             boss.StopAllCoroutines();
         }
     }
