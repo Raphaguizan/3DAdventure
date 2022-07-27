@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_EnemyBullet
+  m_Name: MAT_Bullet
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHABLEND_ON _EMISSION
   m_LightmapFlags: 2
@@ -74,6 +74,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 0.45490196}
-    - _EmissionColor: {r: 1.8848168, g: 0.41786033, b: 0.41786033, a: 1}
+    - _Color: {r: 1, g: 0.66404796, b: 0, a: 0.57254905}
+    - _EmissionColor: {r: 1.8848168, g: 1.7476405, b: 0.4243304, a: 1}
   m_BuildTextureStacks: []

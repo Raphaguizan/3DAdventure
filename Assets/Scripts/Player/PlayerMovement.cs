@@ -21,6 +21,11 @@ namespace Game.Player
         public float gravity = -9;
         public float jumpForce = 10;
 
+        [Space, SerializeField]
+        private ParticleSystem _walkParticle;
+        [SerializeField]
+        private ParticleSystem _landParticle;
+
         private Vector3 _moveDirection = Vector3.zero;
         private float _verticalSpeed = 0f;
         private float _initialSpeed;
@@ -38,6 +43,7 @@ namespace Game.Player
             Vector3 resp = CheckPointManager.GetRespawnClosiestPos();
             if(resp != Vector3.zero)
                 transform.position = resp;
+            ChangeParticleWalk(true);
         }
 
         private void Update()
@@ -104,6 +110,7 @@ namespace Game.Player
             if (controller.isGrounded && !PlayerStateMachine.CompareCurrentStateType(PlayerStates.JUMP))
             {
                 PlayerStateMachine.ChangeState(PlayerStates.JUMP);
+                ChangeParticleWalk(false);
                 _verticalSpeed = jumpForce;
             }
         }
@@ -113,11 +120,14 @@ namespace Game.Player
             if (controller.isGrounded && PlayerStateMachine.CompareCurrentStateType(PlayerStates.JUMP))
             {
                 PlayerStateMachine.ChangeState(PlayerStates.IDLE);
+                LandParticle();
+                ChangeParticleWalk(true);
             }
         }
 
         public void SetDiePos()
         {
+            ChangeParticleWalk(false);
             diePos.pos = transform.position;
         }
 
@@ -132,5 +142,21 @@ namespace Game.Player
             yield return new WaitForSeconds(duration);
             speed = _initialSpeed;
         }
+
+        #region VFX
+        public void ChangeParticleWalk(bool val)
+        {
+            if (!_walkParticle) return;
+            if (val)
+                _walkParticle.Play();
+            else
+                _walkParticle.Stop();
+        }
+        public void LandParticle()
+        {
+            if(_landParticle)
+                _landParticle.Play();
+        }
+        #endregion
     }
 }

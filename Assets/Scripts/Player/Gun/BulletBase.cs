@@ -8,6 +8,7 @@ public class BulletBase : MonoBehaviour
     public float lifeTime;
     public float speed;
     public int bulletDamage = 1;
+    public TrailRenderer trail;
 
     IEnumerator TimeToDestroy()
     {
@@ -27,6 +28,7 @@ public class BulletBase : MonoBehaviour
         transform.SetPositionAndRotation(t.position, t.rotation);
 
         gameObject.SetActive(true);
+        if(trail)trail.Clear();
         StartCoroutine(TimeToDestroy());
     }
 
