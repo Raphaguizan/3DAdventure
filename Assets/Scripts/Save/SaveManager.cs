@@ -12,37 +12,64 @@ namespace Game.Save
         [SerializeField]
         private string _fileName = "/Save.txt";
 
-        public static Action<SaveSetUp> Loaded;
-
         private string _path;
-        private SaveSetUp _setUp;
+        private bool _loaded = false;
+        
+        public static SaveSetUp setUp;
+        
+        public static Action<SaveSetUp> Loaded;
+        public static Action ToSave;
 
-        public static SaveSetUp GetSetup => Instance._setUp;
+        public static bool IsLoaded => Instance._loaded;
         protected override void Awake()
         {
             base.Awake();
             _path = Application.streamingAssetsPath + _fileName;
+            Load();
             DontDestroyOnLoad(this);
         }
-        public void Save(SaveSetUp setUp)
+
+        public void Save(SaveSetUp setup)
         {
-            string json = JsonUtility.ToJson(setUp);
-            _setUp = setUp;
+            Debug.Log("Salvando...");
+            string json = JsonUtility.ToJson(setup, true);
             File.WriteAllText(_path, json);
+        }
+        public void Save()
+        {
+            ToSave?.Invoke();
+            StartCoroutine(WaitToSave());
+        }
+
+        IEnumerator WaitToSave()
+        {
+            yield return new WaitForEndOfFrame();
+            Save(setUp);
         }
 
         public void Load()
         {
-            string json = File.ReadAllText(_path);
-            _setUp = JsonUtility.FromJson<SaveSetUp>(json);
-            
-            if (_setUp == null)
+            Debug.Log("Carregando...");
+            try
             {
-                _setUp = new SaveSetUp();
-                Save(_setUp);
+                string json = File.ReadAllText(_path);
+                setUp = JsonUtility.FromJson<SaveSetUp>(json);
+
+            }catch (FileNotFoundException e)
+            {
+                Debug.Log("criando novo arquivo");
+                setUp = new SaveSetUp();
+                Save(setUp);
             }
 
-            Loaded?.Invoke(_setUp);
+            _loaded = true;
+            Loaded?.Invoke(setUp);
+        }
+
+        private void OnApplicationFocus(bool focus)
+        {
+            if (!focus)
+                Save();
         }
     }
 }

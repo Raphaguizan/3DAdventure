@@ -19,6 +19,8 @@ public class LifeBarManager : MonoBehaviour
     public void Start()
     {
         maxLife = healthToTrack.Life;
+        UpdateInterface();
+
         healthToTrack.onHealEvent.AddListener(UpdateInterface);
         healthToTrack.onDamageEvent.AddListener(UpdateInterface);
     }

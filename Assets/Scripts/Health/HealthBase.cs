@@ -27,6 +27,8 @@ namespace Game.Health
 
         public UnityEvent onDieEvent;
 
+        [HideInInspector]
+        public bool loaded = false;
 
         public int Life => _life;
         public int CurrentLife => _currentLife;
@@ -50,8 +52,13 @@ namespace Game.Health
 
         private void OnEnable()
         {
-            _currentLife = _life;
             _alive = true;
+            if (loaded)
+            {
+                loaded = false;
+                return;
+            }
+            _currentLife = _life;
         }
 
         public virtual void Damage(int damage, Vector3? direction = null)
@@ -76,16 +83,32 @@ namespace Game.Health
             foreach (var flash in _flashColor)
                 flash.Flash();
         }
+        public virtual void SetHealth(int amount)
+        {
+            if (!_alive) return;
+            if (amount <= 0)
+            {
+                Kill();
+                return;
+            }
 
+            if (amount > _life) 
+                _currentLife = _life;
+            else
+                _currentLife = amount;
+
+            onHealEvent.Invoke();
+        } 
         public virtual void AddHealth(int amount)
         {
             if (amount <= 0 || IsFull) return;
 
             _currentLife += amount;
-            onHealEvent.Invoke();
 
             if(_currentLife > _life)
                 _currentLife = _life;
+            
+            onHealEvent.Invoke();
         }
 
         public virtual void Kill()

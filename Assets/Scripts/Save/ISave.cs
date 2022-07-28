@@ -6,7 +6,7 @@ namespace Game.Save
 {
     public interface ISave 
     {
-        public void Save(SaveSetUp setup);
-        public SaveSetUp Load();
+        public void Save();
+        public void Load(SaveSetUp setup);
     }
 }
