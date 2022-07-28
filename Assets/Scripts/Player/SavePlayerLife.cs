@@ -25,6 +25,7 @@ namespace Game.Player {
 
             _health.loaded = true;
             _health.SetHealth(setup.life);
+            SaveManager.LoadFeedBack();
         }
 
         public void Save()

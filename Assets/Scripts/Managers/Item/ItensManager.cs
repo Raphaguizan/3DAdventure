@@ -82,6 +82,7 @@ namespace Game.Item
             loaded = true;
             FindItemByType(ItemType.COIN).Value = setup.coins;
             FindItemByType(ItemType.LIFE_PACK).Value = setup.lifePack;
+            SaveManager.LoadFeedBack();
         }
 
         private void OnDestroy()

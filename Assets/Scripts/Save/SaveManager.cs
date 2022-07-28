@@ -13,8 +13,9 @@ namespace Game.Save
         [SerializeField]
         private string _fileName = "/Save.txt";
 
-        private string _path;
+        [Space, SerializeField, NaughtyAttributes.ReadOnly]
         private bool _loaded;
+        private string _path;
         
         public static SaveSetUp setUp;
         
@@ -69,6 +70,17 @@ namespace Game.Save
 
             Instance._loaded = true;
             Loaded?.Invoke(setUp);
+        }
+
+        public static void LoadFeedBack()
+        {
+            Instance.StopAllCoroutines();
+            Instance.StartCoroutine(Instance.LoadWaitTime());
+        }
+        IEnumerator LoadWaitTime()
+        {
+            yield return new WaitForSecondsRealtime(1f);
+            Instance._loaded = false;
         }
 
         // salvar automaticamente quando o jogo perde o foco da janela
