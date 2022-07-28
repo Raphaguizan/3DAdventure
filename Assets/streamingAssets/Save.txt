@@ -1,8 +1,8 @@
 {
     "level": 1,
-    "life": 7,
-    "coins": 6,
-    "lifePack": 0,
+    "life": 6,
+    "coins": 2,
+    "lifePack": 1,
     "checkPoints": [],
     "lastPosition": {
         "x": 0.850006103515625,

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Game.Player.Abillity;
 
@@ -12,6 +13,9 @@ namespace Game.Player
         public PlayerMovement movement;
         public PlayerAbillityBase abillity;
         public PlayerAction actions;
+
+        [Space]
+        public UnityEvent OnPauseCallBack;
 
         public static Action OnInteractCallBack;
 
@@ -70,6 +74,11 @@ namespace Game.Player
         private void OnInteract(InputValue value)
         {
             OnInteractCallBack?.Invoke();
+        }
+
+        private void OnPause()
+        {
+            OnPauseCallBack.Invoke();
         }
     }
 }

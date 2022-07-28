@@ -22,7 +22,7 @@ namespace Game.Save
         public static Action<SaveSetUp> Loaded;
         public static Action ToSave;
 
-        public static bool IsLoaded => Instance._loaded;
+        public static bool IsLoaded => Instance ? Instance._loaded : false;
 
         protected override void Awake()
         {
@@ -43,6 +43,8 @@ namespace Game.Save
         }
         public static void Save()
         {
+            if(setUp == null) setUp = new SaveSetUp();
+
             ToSave?.Invoke();
             Instance.StartCoroutine(Instance.WaitToSave());
         }

@@ -10,7 +10,7 @@ public class SaveUIFeedBack : MonoBehaviour
     public GameObject UISaveFeedBack;
     public GameObject UILoadFeedBack;
 
-    private void Start()
+    private void OnEnable()
     {
         if (UILoadFeedBack) UILoadFeedBack.SetActive(false);
         if (UISaveFeedBack) UISaveFeedBack.SetActive(false);
@@ -34,7 +34,13 @@ public class SaveUIFeedBack : MonoBehaviour
     IEnumerator ShowTime(GameObject obj)
     {
         obj.SetActive(true);
-        yield return new WaitForSeconds(_showTime);
+        yield return new WaitForSecondsRealtime(_showTime);
         obj.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        SaveManager.Loaded -= ShowLoad;
+        SaveManager.ToSave -= ShowSave;
     }
 }
