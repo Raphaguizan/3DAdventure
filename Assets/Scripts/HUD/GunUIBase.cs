@@ -15,6 +15,11 @@ namespace Game.UI.Bullet
 
         public virtual void UpdateUI(float val) { }
         public virtual void UpdateUI(float val, int max) { }
+
+        private void OnDestroy()
+        {
+            register.Unregister(this);
+        }
     }
 }
 

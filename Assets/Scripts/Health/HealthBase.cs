@@ -68,6 +68,7 @@ namespace Game.Health
 
             _currentLife--;
 
+            onDamageEvent.Invoke();
             if (_currentLife <= 0 && _alive)
             {
                 Kill();
@@ -78,7 +79,6 @@ namespace Game.Health
             {
                 transform.DOMove((Vector3)direction, .1f);
             }
-            onDamageEvent.Invoke();
 
             foreach (var flash in _flashColor)
                 flash.Flash();

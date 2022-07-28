@@ -2,18 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Util;
-using TMPro;
+using Game.Save;
 
 namespace Game.Item
 {
-    public class ItensManager : Singleton<ItensManager>
+    public class ItensManager : Singleton<ItensManager>, ISave
     {
         public List<ItemSetup> itemSetups = new List<ItemSetup>();
 
+        private bool loaded = false;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            if (SaveManager.IsLoaded)
+                Load(SaveManager.setUp);
+
+            SaveManager.Loaded += Load;
+            SaveManager.ToSave += Save;
+        }
+
         private void Start()
         {
+            if (loaded)
+            {
+                loaded = false;
+                RefreshUI();
+                return;
+            }
             Reset();
-            //RefreshUI();
         }
 
         private void Reset()
@@ -26,7 +44,7 @@ namespace Game.Item
 
         public static bool AddItem(ItemType type, int amount = 1)
         {
-            var item = Instance.itemSetups.Find(i => i.Type.Equals(type));
+            var item = FindItemByType(type);
 
             if((item.Value + amount) < 0)
             {
@@ -40,12 +58,36 @@ namespace Game.Item
             }
         }
 
+        public static ItemSetup FindItemByType(ItemType type)
+        {
+            return Instance.itemSetups.Find(x => x.Type == type);
+        }
+
         private void RefreshUI()
         {
             foreach (var item in itemSetups)
             {
                 item.UpdateUI();
             }
+        }
+
+        public void Save()
+        {
+            SaveManager.setUp.coins = FindItemByType(ItemType.COIN).Value;
+            SaveManager.setUp.lifePack = FindItemByType(ItemType.LIFE_PACK).Value;
+        }
+
+        public void Load(SaveSetUp setup)
+        {
+            loaded = true;
+            FindItemByType(ItemType.COIN).Value = setup.coins;
+            FindItemByType(ItemType.LIFE_PACK).Value = setup.lifePack;
+        }
+
+        private void OnDestroy()
+        {
+            SaveManager.Loaded -= Load;
+            SaveManager.ToSave -= Save;
         }
     }
 }

@@ -1,7 +1,7 @@
 {
     "level": 1,
-    "life": 5,
-    "coins": 0,
+    "life": 7,
+    "coins": 6,
     "lifePack": 0,
     "checkPoints": [],
     "lastPosition": {

@@ -15,7 +15,8 @@ namespace Game.Util
             }
             else
             {
-                Destroy(gameObject);
+                Destroy(Instance.gameObject);
+                return;
             }
         }
     }

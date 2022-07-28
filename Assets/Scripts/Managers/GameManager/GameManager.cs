@@ -29,6 +29,10 @@ public class GameManager : Singleton<GameManager>
         _stateMachine.SwitchState(GameStates.GAME);
     }
 
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 
     public void ReloadScene(float delay)
     {

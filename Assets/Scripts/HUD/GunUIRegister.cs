@@ -9,7 +9,7 @@ namespace Game.UI
     [CreateAssetMenu(menuName = "Game/UI/Gun Register", fileName = "Gun Register")]
     public class GunUIRegister : ScriptableObject
     {
-        private List<GunUIBase> gunUIList;
+        private List<GunUIBase> gunUIList = new List<GunUIBase>();
 
         public void Register(GunUIBase gunUI)
         {

@@ -49,7 +49,7 @@ namespace Game.Player
         private void Update()
         {
             Gravity();
-            controller.Move(_moveDirection);
+            if(controller.enabled)controller.Move(_moveDirection);
             CheckLand();
         }
 
