@@ -37,7 +37,8 @@ namespace Game.Player
             CanMove = true;
             _initialSpeed = speed;
 
-            Load(SaveManager.setUp);
+            if (SaveManager.LoadRequired)
+                Load(SaveManager.setUp);
 
             SaveManager.Loaded += Load;
             SaveManager.ToSave += Save;
@@ -45,7 +46,7 @@ namespace Game.Player
 
         IEnumerator Start()
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(.1f);
             AdjusPosition();
         }
 
@@ -158,13 +159,12 @@ namespace Game.Player
 
         public void Save()
         {
-            SaveManager.setUp.lastPosition = diePos.pos;
+            SaveManager.setUp.lastPosition = transform.position;
         }
 
         public void Load(SaveSetUp setup)
         {
             diePos.pos = setup.lastPosition;
-            AdjusPosition();
         }
 
         private void OnDestroy()

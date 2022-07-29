@@ -12,8 +12,8 @@ namespace Game.Player {
 
         private void Awake()
         {
-
-            Load(SaveManager.setUp);
+            if(SaveManager.LoadRequired)
+                Load(SaveManager.setUp);
 
             SaveManager.Loaded += Load;
             SaveManager.ToSave += Save;

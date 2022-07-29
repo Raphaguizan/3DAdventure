@@ -12,11 +12,19 @@ namespace Game.Save
     {
         [SerializeField]
         private string _fileName = "/Save.txt";
-
+        [SerializeField, NaughtyAttributes.ReadOnly]
+        private bool _loadRequired = false;
+        
         private string _path;
 
         public static SaveSetUp setUp = new SaveSetUp();
-        
+
+        public static bool LoadRequired
+        {
+            get => Instance._loadRequired;
+            set => Instance._loadRequired = value;
+        }
+
         public static Action<SaveSetUp> Loaded;
         public static Action ToSave;
 
@@ -62,7 +70,7 @@ namespace Game.Save
                 Debug.Log("criando novo arquivo");
                 Instance.Save(setUp);
             }
-
+            Instance._loadRequired = true;
             Loaded?.Invoke(setUp);
         }
 

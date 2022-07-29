@@ -16,7 +16,8 @@ namespace Game.Item
         {
             base.Awake();
 
-            Load(SaveManager.setUp);
+            if (SaveManager.LoadRequired)
+                Load(SaveManager.setUp);
 
             SaveManager.Loaded += Load;
             SaveManager.ToSave += Save;

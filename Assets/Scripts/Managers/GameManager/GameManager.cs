@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using Game.Util;
 using Game.StateMachine;
+using Game.Save;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -36,6 +37,7 @@ public class GameManager : Singleton<GameManager>
 
     public void ReloadScene(float delay)
     {
+        SaveManager.LoadRequired = false;
         Invoke(nameof(ReloadScene), delay);
     }
     public void ReloadScene()
