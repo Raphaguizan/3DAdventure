@@ -13,23 +13,19 @@ namespace Game.Save
         [SerializeField]
         private string _fileName = "/Save.txt";
 
-        [Space, SerializeField, NaughtyAttributes.ReadOnly]
-        private bool _loaded;
         private string _path;
-        
-        public static SaveSetUp setUp;
+
+        public static SaveSetUp setUp = new SaveSetUp();
         
         public static Action<SaveSetUp> Loaded;
         public static Action ToSave;
 
-        public static bool IsLoaded => Instance ? Instance._loaded : false;
 
         protected override void Awake()
         {
             base.Awake();
             DontDestroyOnLoad(this);
             _path = Application.streamingAssetsPath + _fileName;
-            _loaded = false;
             // Auto Load
             //if(!_loaded)Load();
         }
@@ -43,8 +39,6 @@ namespace Game.Save
         }
         public static void Save()
         {
-            if(setUp == null) setUp = new SaveSetUp();
-
             ToSave?.Invoke();
             Instance.StartCoroutine(Instance.WaitToSave());
         }
@@ -66,23 +60,10 @@ namespace Game.Save
             }catch (FileNotFoundException e)
             {
                 Debug.Log("criando novo arquivo");
-                setUp = new SaveSetUp();
                 Instance.Save(setUp);
             }
 
-            Instance._loaded = true;
             Loaded?.Invoke(setUp);
-        }
-
-        public static void LoadFeedBack()
-        {
-            Instance.StopAllCoroutines();
-            Instance.StartCoroutine(Instance.LoadWaitTime());
-        }
-        IEnumerator LoadWaitTime()
-        {
-            yield return new WaitForSecondsRealtime(1f);
-            Instance._loaded = false;
         }
 
         // salvar automaticamente quando o jogo perde o foco da janela

@@ -22,12 +22,10 @@ namespace Game.CheckPoint
             render = GetComponentInChildren<MeshRenderer>();
         }
 
-        IEnumerator Start()
+        private void Start()
         {
             CheckPointManager.RegisterCheckPoint(this);
-            yield return new WaitUntil(() => CheckPointManager.LoadComplete);
-            int lastValue = CheckPointManager.LastCheckValue;
-            if (lastValue != 0 && keyValue <= lastValue)
+            if (CheckPointManager.CheckIsUnloked(keyValue))
             {
                 TurnOn();
             }

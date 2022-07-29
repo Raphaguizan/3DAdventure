@@ -28,6 +28,7 @@ public class PauseMenuManager : MonoBehaviour
     public void LoadButton()
     {
         SaveManager.Load();
+        GameManager.Instance.ReloadScene();
     }
 
     private void OnDisable()

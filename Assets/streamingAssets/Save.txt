@@ -1,9 +1,11 @@
 {
     "level": 1,
-    "life": 6,
-    "coins": 2,
+    "life": 8,
+    "coins": 1,
     "lifePack": 1,
-    "checkPoints": [],
+    "checkPoints": [
+        1
+    ],
     "lastPosition": {
         "x": 0.850006103515625,
         "y": -1.799999713897705,

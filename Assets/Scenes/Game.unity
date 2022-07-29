@@ -493,7 +493,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.9196814, b: 0.1462264, a: 1}
     m_HighlightedColor: {r: 0.77254903, g: 0.7155606, b: 0.047058806, a: 1}
     m_PressedColor: {r: 0.112009674, g: 0.7169812, b: 0, a: 1}
-    m_SelectedColor: {r: 0.7725491, g: 0.7137255, b: 0.04705883, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9215687, b: 0.14509805, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1135,7 +1135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fileName: /Save.txt
-  _loaded: 0
 --- !u!4 &147741417
 Transform:
   m_ObjectHideFlags: 0
@@ -8595,7 +8594,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.9196814, b: 0.1462264, a: 1}
     m_HighlightedColor: {r: 0.77254903, g: 0.7155606, b: 0.047058806, a: 1}
     m_PressedColor: {r: 0.112009674, g: 0.7169812, b: 0, a: 1}
-    m_SelectedColor: {r: 0.7725491, g: 0.7137255, b: 0.04705883, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9215687, b: 0.14509805, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -9049,7 +9048,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568302224}
-  m_LocalRotation: {x: 0.26807758, y: 0.000000016576582, z: -0.0000000046126445, w: 0.9633973}
+  m_LocalRotation: {x: 0.26807758, y: -0.000000016576584, z: 0.000000004612645, w: 0.9633973}
   m_LocalPosition: {x: -0.024169922, y: 10.538111, z: -20.344906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16192,7 +16191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diePos: {fileID: 11400000, guid: 29b075f26b79c814fbd44a43e014ecee, type: 2}
-  _lastCheckPoint: {fileID: 0}
+  _checkPoints: {fileID: 11400000, guid: d12261cc336a4364daa56c81269d60c0, type: 2}
   _checks: []
 --- !u!4 &846618562
 Transform:
@@ -19782,7 +19781,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.9196814, b: 0.1462264, a: 1}
     m_HighlightedColor: {r: 0.77254903, g: 0.7155606, b: 0.047058806, a: 1}
     m_PressedColor: {r: 0.112009674, g: 0.7169812, b: 0, a: 1}
-    m_SelectedColor: {r: 0.7725491, g: 0.7137255, b: 0.04705883, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9215687, b: 0.14509805, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -25633,7 +25632,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.9196814, b: 0.1462264, a: 1}
     m_HighlightedColor: {r: 0.77254903, g: 0.7155606, b: 0.047058806, a: 1}
     m_PressedColor: {r: 0.112009674, g: 0.7169812, b: 0, a: 1}
-    m_SelectedColor: {r: 0.7725491, g: 0.7137255, b: 0.04705883, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9215687, b: 0.14509805, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -26688,7 +26687,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.26807758, y: 0.000000016576582, z: -0.0000000046126445, w: 0.9633973}
+  m_LocalRotation: {x: 0.26807758, y: -0.000000016576584, z: 0.000000004612645, w: 0.9633973}
   m_LocalPosition: {x: 0.8500061, y: 10.610004, z: -32.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -29514,6 +29513,18 @@ MonoBehaviour:
       - m_Target: {fileID: 278329405}
         m_TargetAssemblyTypeName: DeathCamEffect, Assembly-CSharp
         m_MethodName: ActiveEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1328961095}
+        m_TargetAssemblyTypeName: Game.Item.ItensManager, Assembly-CSharp
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

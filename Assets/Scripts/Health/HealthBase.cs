@@ -58,6 +58,11 @@ namespace Game.Health
                 loaded = false;
                 return;
             }
+            ResetLife();
+        }
+
+        private void ResetLife()
+        {
             _currentLife = _life;
         }
 

@@ -4,11 +4,12 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Game.CheckPoint;
+using Game.Save;
 
 namespace Game.Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour, ISave
     {
         public bool CanMove { get; set; }
 
@@ -35,15 +36,17 @@ namespace Game.Player
             controller = GetComponent<CharacterController>();
             CanMove = true;
             _initialSpeed = speed;
+
+            Load(SaveManager.setUp);
+
+            SaveManager.Loaded += Load;
+            SaveManager.ToSave += Save;
         }
 
         IEnumerator Start()
         {
-            yield return new WaitUntil(()=> CheckPointManager.LoadComplete);
-            Vector3 resp = CheckPointManager.GetRespawnClosiestPos();
-            if(resp != Vector3.zero)
-                transform.position = resp;
-            ChangeParticleWalk(true);
+            yield return new WaitForEndOfFrame();
+            AdjusPosition();
         }
 
         private void Update()
@@ -51,6 +54,16 @@ namespace Game.Player
             Gravity();
             if(controller.enabled)controller.Move(_moveDirection);
             CheckLand();
+        }
+
+        [NaughtyAttributes.Button]
+        private void AdjusPosition()
+        {
+            ChangeParticleWalk(false);
+            Vector3 resp = CheckPointManager.GetRespawnClosiestPos();
+            if (resp != Vector3.zero)
+                transform.position = resp;
+            ChangeParticleWalk(true);
         }
 
         private void Gravity()
@@ -125,12 +138,6 @@ namespace Game.Player
             }
         }
 
-        public void SetDiePos()
-        {
-            ChangeParticleWalk(false);
-            diePos.pos = transform.position;
-        }
-
         public void SpeedBust(float mutiply, float duration)
         {
             StartCoroutine(SpeedBustCoroutine(mutiply, duration));
@@ -142,6 +149,30 @@ namespace Game.Player
             yield return new WaitForSeconds(duration);
             speed = _initialSpeed;
         }
+
+        #region save die pos
+        public void SetDiePos()
+        {
+            diePos.pos = transform.position;
+        }
+
+        public void Save()
+        {
+            SaveManager.setUp.lastPosition = diePos.pos;
+        }
+
+        public void Load(SaveSetUp setup)
+        {
+            diePos.pos = setup.lastPosition;
+            AdjusPosition();
+        }
+
+        private void OnDestroy()
+        {
+            SaveManager.Loaded -= Load;
+            SaveManager.ToSave -= Save;
+        }
+        #endregion
 
         #region VFX
         public void ChangeParticleWalk(bool val)
@@ -157,6 +188,7 @@ namespace Game.Player
             if(_landParticle)
                 _landParticle.Play();
         }
+
         #endregion
     }
 }

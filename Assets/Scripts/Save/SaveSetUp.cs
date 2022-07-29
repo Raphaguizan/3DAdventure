@@ -21,7 +21,11 @@ namespace Game.Save
             this.life = life;
             this.coins = coins;
             this.lifePack = lifePack;
-            this.checkPoints = checkPoints;
+
+            if(checkPoints == null)
+                this.checkPoints = new List<int>();
+            else
+                this.checkPoints = checkPoints;
 
             if (lastPosition == null)
                 lastPosition = new Vector3(0.850006104f, -1.79999971f, -11.7075462f);

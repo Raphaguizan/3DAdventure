@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -38,6 +39,15 @@ namespace Game.Util
         public static Vector2 Randomize(this Vector2 v)
         {
             return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        }
+
+        public static void AddUnique<T>(this List<T> l, T val, Predicate<T> equals = null)
+        {
+            if(equals == null)
+                equals = new Predicate<T>(x => x.Equals(val));
+
+            if (!l.Exists(equals))
+                l.Add(val);
         }
 
         public static Enum GetRandom(this Enum e)

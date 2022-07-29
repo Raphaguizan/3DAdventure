@@ -12,8 +12,8 @@ namespace Game.Player {
 
         private void Awake()
         {
-            if (SaveManager.IsLoaded)
-                Load(SaveManager.setUp);
+
+            Load(SaveManager.setUp);
 
             SaveManager.Loaded += Load;
             SaveManager.ToSave += Save;
@@ -25,7 +25,6 @@ namespace Game.Player {
 
             _health.loaded = true;
             _health.SetHealth(setup.life);
-            SaveManager.LoadFeedBack();
         }
 
         public void Save()

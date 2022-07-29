@@ -2,52 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Util;
+using Game.Save;
 
 namespace Game.CheckPoint
 {
-    public class CheckPointManager : Singleton<CheckPointManager>
+    public class CheckPointManager : Singleton<CheckPointManager>, ISave
     {
         private readonly string _keyName = "CheckPoint";
         public SO_DiePos diePos;
-        [SerializeField]
-        private CheckPointBase _lastCheckPoint = null;
 
-        private bool _loadComplete = false;
         [SerializeField]
+        private SO_CheckPoints _checkPoints;
+
+
+        [Space, SerializeField]
         private List<CheckPointBase> _checks;
 
-        public static bool LoadComplete => Instance._loadComplete;
-        public static int LastCheckValue
-        {
-            get
-            {
-                if (Instance._lastCheckPoint)
-                    return Instance._lastCheckPoint.keyValue;
-                return 0;
-            }
-        }
+
 
         protected override void Awake()
         {
             base.Awake();
             _checks = new List<CheckPointBase>();
-            _loadComplete = false;
-        }
-        
-        private void OnEnable()
-        {
-            StartCoroutine(LoadCheckPoint());
-        }
-        private IEnumerator LoadCheckPoint()
-        {
-            if (PlayerPrefs.HasKey(_keyName))
-            {
-                int lastValue = PlayerPrefs.GetInt(_keyName);
-                yield return new WaitForEndOfFrame();
 
-                _lastCheckPoint = _checks.Find(c => c.keyValue == lastValue);
-            }
-            _loadComplete = true;
+            Load(SaveManager.setUp);
+
+            SaveManager.Loaded += Load;
+            SaveManager.ToSave += Save;
         }
 
         public static void RegisterCheckPoint(CheckPointBase c)
@@ -60,26 +41,10 @@ namespace Game.CheckPoint
             Instance._checks.Remove(c);
         }
 
-        public static void SaveCheckPoint(CheckPointBase check)
-        {
-            if(Instance._lastCheckPoint == null || check.keyValue > Instance._lastCheckPoint.keyValue)
-            {
-                PlayerPrefs.SetInt(Instance._keyName, check.keyValue);
-                Instance._lastCheckPoint = check;
-            }
-        }
-
-        public static Vector3 GetRespawnPos()
-        {
-            if(Instance._lastCheckPoint == null)
-                return Vector3.zero;
-
-            return Instance._lastCheckPoint.transform.position;
-        }
-
+       
         public static Vector3 GetRespawnClosiestPos()
         {
-            if (Instance._lastCheckPoint == null)
+            if (Instance.diePos.pos == null)
                 return Vector3.zero;
 
             CheckPointBase aux = null;
@@ -97,6 +62,36 @@ namespace Game.CheckPoint
                 return Vector3.zero;
 
             return aux.transform.position;
+        }
+
+        public void Save()
+        {
+            foreach (int cpU in _checkPoints.unlokeds)
+            {
+                SaveManager.setUp.checkPoints.AddUnique(cpU);
+            }
+        }
+
+        public static bool CheckIsUnloked(int key)
+        {
+            if(Instance._checkPoints.unlokeds == null) return false;
+            return Instance._checkPoints.unlokeds.Exists(x => x == key);
+        }
+
+        public static void SaveCheckPoint(CheckPointBase check)
+        {
+            Instance._checkPoints.unlokeds.AddUnique(check.keyValue);
+        }
+
+        public void Load(SaveSetUp setup)
+        {
+            _checkPoints.unlokeds = setup.checkPoints;
+        }
+
+        private void OnDestroy()
+        {
+            SaveManager.Loaded -= Load;
+            SaveManager.ToSave -= Save;
         }
     }
 }

@@ -16,8 +16,7 @@ namespace Game.Item
         {
             base.Awake();
 
-            if (SaveManager.IsLoaded)
-                Load(SaveManager.setUp);
+            Load(SaveManager.setUp);
 
             SaveManager.Loaded += Load;
             SaveManager.ToSave += Save;
@@ -34,7 +33,7 @@ namespace Game.Item
             Reset();
         }
 
-        private void Reset()
+        public void Reset()
         {
             foreach (var item in itemSetups)
             {
@@ -82,7 +81,6 @@ namespace Game.Item
             loaded = true;
             FindItemByType(ItemType.COIN).Value = setup.coins;
             FindItemByType(ItemType.LIFE_PACK).Value = setup.lifePack;
-            SaveManager.LoadFeedBack();
         }
 
         private void OnDestroy()
