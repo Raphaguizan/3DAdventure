@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Sound;
 
 namespace Game.Item
 {
@@ -14,7 +15,7 @@ namespace Game.Item
         public GameObject Image;
         [Header("Effects")]
         public ParticleSystem particles;
-        public AudioSource audioSource;
+        public AudioClip sound;
 
         protected GameObject playerGO;
 
@@ -41,7 +42,7 @@ namespace Game.Item
         protected virtual void Collect()
         {
             OnCollet();
-            if(audioSource) audioSource.Play();
+            if (sound) AudioPooling.Play(sound, transform.position);
             if(particles) particles.Play();
             DisableObj();
         }

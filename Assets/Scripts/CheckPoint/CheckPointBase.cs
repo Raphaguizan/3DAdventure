@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using Game.Sound;
 
 namespace Game.CheckPoint
 {
@@ -12,6 +13,8 @@ namespace Game.CheckPoint
         private string PlayerTag = "Player";
         [SerializeField, ColorUsage(true, true)]
         private Color _activeColor;
+        [SerializeField]
+        private AudioClip _sound;
 
         private MeshRenderer render;
         private bool _active = false;
@@ -35,6 +38,9 @@ namespace Game.CheckPoint
         {
             if (other.transform.CompareTag(PlayerTag))
             {
+                if (!_active)
+                    if (_sound) AudioPooling.Play(_sound, transform.position);
+
                 TurnOn();
             }
         }

@@ -1,5 +1,6 @@
 using Game.Player.Gun;
 using UnityEngine;
+using Game.Sound;
 
 public class GunMutipleShot : GunShootLimit
 {
@@ -35,6 +36,7 @@ public class GunMutipleShot : GunShootLimit
             BulletPooling(gunPoint);
         }
         ResetGunPoint();
+        if (shotSound) AudioPooling.Play(shotSound, transform.position);
     }
 
     private void ResetGunPoint()

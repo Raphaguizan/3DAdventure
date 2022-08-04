@@ -125,6 +125,11 @@ MonoBehaviour:
   _damageable: 1
   _life: 5
   _currentLife: 0
+  _damageSound: {fileID: 8300000, guid: 0901226ec00c3d74e8410bf68d61354b, type: 3}
+  _healSound: {fileID: 0}
+  onHealEvent:
+    m_PersistentCalls:
+      m_Calls: []
   onDamageEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -145,6 +150,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  loaded: 0
 --- !u!114 &3188952047401017266
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using NaughtyAttributes;
 using Game.Player;
 using Game.Item;
+using Game.Sound;
 
 public class ChestBase : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class ChestBase : MonoBehaviour
 
     [Space, SerializeField]
     private ParticleSystem _particle;
+    [SerializeField]
+    private AudioClip _sound;
 
     [Space, SerializeField]
     private ItemType _itemType;
@@ -61,6 +64,7 @@ public class ChestBase : MonoBehaviour
         _animator.SetBool(_openKey, IsOpen);
 
         PlayerInputController.OnInteractCallBack -= OpenChest;
+        if (_sound) AudioPooling.Play(_sound, transform.position);
         ItemCollect();
         OnOpenCallBack.Invoke();
     }

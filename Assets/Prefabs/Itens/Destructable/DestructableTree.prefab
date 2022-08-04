@@ -4906,6 +4906,8 @@ MonoBehaviour:
   _damageable: 1
   _life: 1000
   _currentLife: 0
+  _damageSound: {fileID: 8300000, guid: d776f608a11f18f4fb3779a84bcd56ac, type: 3}
+  _healSound: {fileID: 0}
   onHealEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -4953,6 +4955,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  loaded: 0
 --- !u!65 &886657284850141052
 BoxCollider:
   m_ObjectHideFlags: 0

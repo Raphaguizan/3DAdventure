@@ -48,6 +48,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1311950974521151213, guid: 00acd6204095da742b650a203f9e2f73, type: 3}
   shotCooldown: 0.5
   bulletSpeed: 25
+  shotSound: {fileID: 8300000, guid: 8e8e67ed5b1337b439880083574e89b5, type: 3}
   _gunUI: {fileID: 11400000, guid: 43833f4b2768ab245ac17206814d51c1, type: 2}
   _bulletLimit: 5
   _rechargeTime: 2

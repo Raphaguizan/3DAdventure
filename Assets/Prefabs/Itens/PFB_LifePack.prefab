@@ -63,7 +63,7 @@ MonoBehaviour:
   timeToDestroy: 3
   Image: {fileID: 2573318211405697258}
   particles: {fileID: 0}
-  audioSource: {fileID: 0}
+  sound: {fileID: 8300000, guid: ebaa3388a990f1a4d98d6ddb316b3663, type: 3}
 --- !u!1001 &3420249268310273467
 PrefabInstance:
   m_ObjectHideFlags: 0

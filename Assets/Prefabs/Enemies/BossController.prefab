@@ -242,6 +242,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1311950974521151213, guid: 1bcd8e11d099aaf4d8f073fea290c804, type: 3}
   shotCooldown: 0.2
   bulletSpeed: 25
+  shotSound: {fileID: 8300000, guid: 410d2671733bf5249b09701c19a5e187, type: 3}
 --- !u!1 &2392873371797565532
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +460,9 @@ MonoBehaviour:
   _damageable: 1
   _life: 50
   _currentLife: 0
+  _damageSound: {fileID: 8300000, guid: 7c83e8225410175488444fef80191226, type: 3}
+  _healSound: {fileID: 0}
+  _dieMusic: {fileID: 8300000, guid: 760c52b6203bd8c4b97069b533bdf609, type: 3}
   onHealEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -482,6 +486,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  loaded: 0
 --- !u!114 &2392873372309798748
 MonoBehaviour:
   m_ObjectHideFlags: 0

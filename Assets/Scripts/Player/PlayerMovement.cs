@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine;
 using Game.CheckPoint;
 using Game.Save;
+using Game.Sound;
 
 namespace Game.Player
 {
@@ -26,6 +27,11 @@ namespace Game.Player
         private ParticleSystem _walkParticle;
         [SerializeField]
         private ParticleSystem _landParticle;
+
+        [Space, SerializeField]
+        private AudioClip _jumpSound;
+        [SerializeField]
+        private AudioClip _landSound;
 
         private Vector3 _moveDirection = Vector3.zero;
         private float _verticalSpeed = 0f;
@@ -126,6 +132,7 @@ namespace Game.Player
                 PlayerStateMachine.ChangeState(PlayerStates.JUMP);
                 ChangeParticleWalk(false);
                 _verticalSpeed = jumpForce;
+                if (_jumpSound) AudioPooling.Play(_jumpSound, transform.position);
             }
         }
 
@@ -134,6 +141,7 @@ namespace Game.Player
             if (controller.isGrounded && PlayerStateMachine.CompareCurrentStateType(PlayerStates.JUMP))
             {
                 PlayerStateMachine.ChangeState(PlayerStates.IDLE);
+                if (_landSound) AudioPooling.Play(_landSound, transform.position);
                 LandParticle();
                 ChangeParticleWalk(true);
             }

@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Sound;
 
 namespace Game.Player.Gun
 {
@@ -13,6 +14,7 @@ namespace Game.Player.Gun
         public float shotCooldown = .2f;
         public float bulletSpeed = 25f;
         public Action ShotCallBack;
+        public AudioClip shotSound;
 
         private List<GameObject> _shotPoolingList = new List<GameObject>();
         private Coroutine _currentCoroutine;
@@ -50,6 +52,7 @@ namespace Game.Player.Gun
             ShotCallBack?.Invoke();
 
             BulletPooling(gunPoint);
+            if (shotSound) AudioPooling.Play(shotSound, transform.position);
         }
 
         protected void BulletPooling(Transform bulletParent)

@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using Game.Sound;
 
 namespace Game.Health
 {
@@ -14,6 +15,12 @@ namespace Game.Health
         private int _life = 10;
         [SerializeField, ReadOnly]
         private int _currentLife = 0;
+        [SerializeField]
+        private AudioClip _damageSound;
+        [SerializeField]
+        private AudioClip _healSound;
+        [SerializeField]
+        private AudioClip _dieMusic;
 
         [Space]
         public UnityEvent onHealEvent;
@@ -87,6 +94,8 @@ namespace Game.Health
 
             foreach (var flash in _flashColor)
                 flash.Flash();
+
+            if (_damageSound) AudioPooling.Play(_damageSound, transform.position);
         }
         public virtual void SetHealth(int amount)
         {
@@ -112,13 +121,16 @@ namespace Game.Health
 
             if(_currentLife > _life)
                 _currentLife = _life;
-            
+
+            if (_healSound) AudioPooling.Play(_healSound, transform.position);
+
             onHealEvent.Invoke();
         }
 
         public virtual void Kill()
         {
             _alive = false;
+            if (_dieMusic) MusicPooling.Play(_dieMusic);
             onDieEvent.Invoke();
             if (_destoryObj)
             {

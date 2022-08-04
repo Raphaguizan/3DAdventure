@@ -5063,6 +5063,7 @@ MonoBehaviour:
   _playerCloseKey: PlayerClose
   _openKey: Open
   _particle: {fileID: 6309129004764047120}
+  _sound: {fileID: 8300000, guid: b22ec0b27dde8bc4baab29474d89ca5f, type: 3}
   _itemType: 0
   itemNum: 10
   OnOpenCallBack:

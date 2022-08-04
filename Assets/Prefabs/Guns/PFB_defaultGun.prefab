@@ -48,6 +48,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1311950974521151213, guid: 00acd6204095da742b650a203f9e2f73, type: 3}
   shotCooldown: 0.2
   bulletSpeed: 25
+  shotSound: {fileID: 8300000, guid: a27711c206a36a249a253d03e303b905, type: 3}
 --- !u!1 &7417422263328959595
 GameObject:
   m_ObjectHideFlags: 0
