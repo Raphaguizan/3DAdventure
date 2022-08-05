@@ -21,6 +21,11 @@ namespace Game.Health
         private SkinnedMeshRenderer _skinnedMeshRenderer;
         private Tween _currentTween;
 
+        private void Awake()
+        {
+            OnValidate();
+        }
+
         private void OnValidate()
         {
              _renderer = GetComponent<MeshRenderer>();

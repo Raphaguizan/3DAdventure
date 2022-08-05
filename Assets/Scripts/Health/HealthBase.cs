@@ -45,6 +45,11 @@ namespace Game.Health
         private FlashColor[] _flashColor;
         private bool _alive = true;
 
+        private void Awake()
+        {
+            OnValidate();
+        }
+
         #region Teste
         [Button]
         public void TestDamage()
@@ -60,6 +65,7 @@ namespace Game.Health
         private void OnEnable()
         {
             _alive = true;
+
             if (loaded)
             {
                 loaded = false;

@@ -26,12 +26,17 @@ namespace Game.Sound
             AudioSource source = Instance.VerifyFreeSource();
             if (loop)
             {
-                if(Instance._sourceLooping && Instance._sourceLooping.isPlaying) Instance._sourceLooping.Stop();
+                StopMusicLoop();
                 Instance._sourceLooping = source;
             }
             source.loop = loop;
             source.clip = clip;
             source.Play();
+        }
+        public static void StopMusicLoop()
+        {
+            if (Instance._sourceLooping && Instance._sourceLooping.isPlaying)
+                Instance._sourceLooping.Stop();
         }
 
         private AudioSource VerifyFreeSource()
